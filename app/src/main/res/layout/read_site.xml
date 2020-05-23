@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/wall_home"
+    android:padding="10dp"
+
+    >
+
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_vector_gray"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            >
+            <TextView
+                android:id="@+id/txtFarsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="فارسی"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnFarsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="فارسی"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+<!--        semnani-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/txtSemnani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="سمنانی"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnSemnani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="سمنانی"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+        <!--        sangesari-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/txtSangesari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="سنگسری"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnSangesari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="سنگسری"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+        <!--        mazandarani-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/txtMazandarani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="مازتدرانی"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnMazandarani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="مازندرانی"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+        <!--        shirazi-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:id="@+id/txtShirazi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:text="شیرازی"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            />
+        <Button
+            android:id="@+id/btnShirazi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="شیرازی"
+            android:background="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            />
+
+
+    </LinearLayout>
+        <!--        esfahani-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/txtEsfahani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="اصفهانی"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnEsfahni"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="اصفهانی"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+        <!--        Torki-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/txtTorki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:text="ترکی"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                />
+            <Button
+                android:id="@+id/btnTorki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="ترکی"
+                android:background="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

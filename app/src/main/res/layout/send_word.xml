@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/wall_home"
+    android:orientation="vertical"
+    android:padding="20dp"
+>
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_vector_gray"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp">
+
+        <Spinner
+            android:id="@+id/selectCategory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txtWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="لغت خود را بنویسید"
+            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/txtMeansWord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="معنی لغت را اگر میدانید بنویسید"
+        android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+
+
+
+        />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txtPronounce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="تلفظ خود را بنویسید"
+            android:textColorHint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+
+
+            />
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/wall_home2"
+        android:text="ثبت لغت"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            tools:ignore="MissingConstraints"
+            android:visibility="invisible"
+            android:scrollbarSize="7dp"
+            />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

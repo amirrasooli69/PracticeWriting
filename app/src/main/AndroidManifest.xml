@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ir.papiloo.words">
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="ir.papiloo.practicewriting.Configs"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light"
+        tools:ignore="HardcodedDebugMode">
+        <activity android:name="ir.papiloo.practicewriting.Idea" /> <!-- Splash screen -->
+        <activity
+            android:name="ir.papiloo.practicewriting.SplashScreen"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Splashscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Other Activities -->
+        <activity android:name="ir.papiloo.practicewriting.Home" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardFa" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardSem" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardSan" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardMaz" />
+        <activity android:name="ir.papiloo.practicewriting.GameOver" />
+        <activity android:name="ir.papiloo.practicewriting.About" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardFa4" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoardFa3" />
+        <activity android:name="ir.papiloo.practicewriting.CustomAdapter" />
+        <activity android:name="ir.papiloo.practicewriting.Item" />
+        <activity android:name="ir.papiloo.practicewriting.SendWord"/>
+
+
+    </application>
+
+</manifest>

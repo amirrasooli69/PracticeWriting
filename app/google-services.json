@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "434340465708",
+    "firebase_url": "https://ir-papiloo-words.firebaseio.com",
+    "project_id": "ir-papiloo-words",
+    "storage_bucket": "ir-papiloo-words.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434340465708:android:a82c00ac7bfd25d789d589",
+        "android_client_info": {
+          "package_name": "ir.papiloo.words"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434340465708-l8ela4eh1o09s9nna1q3op4uchpnj3f1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQdZre5YNDs7fD4QdwurGlRPGd5y-McU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434340465708-l8ela4eh1o09s9nna1q3op4uchpnj3f1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
