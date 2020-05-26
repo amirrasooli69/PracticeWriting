@@ -30,14 +30,9 @@
             </intent-filter>
         </activity> <!-- Other Activities -->
         <activity android:name="ir.papiloo.practicewriting.Home" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardFa" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardSem" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardSan" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardMaz" />
+        <activity android:name="ir.papiloo.practicewriting.GameBoard" />
         <activity android:name="ir.papiloo.practicewriting.GameOver" />
         <activity android:name="ir.papiloo.practicewriting.About" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardFa4" />
-        <activity android:name="ir.papiloo.practicewriting.GameBoardFa3" />
         <activity android:name="ir.papiloo.practicewriting.CustomAdapter" />
         <activity android:name="ir.papiloo.practicewriting.Item" />
         <activity android:name="ir.papiloo.practicewriting.SendWord"/>

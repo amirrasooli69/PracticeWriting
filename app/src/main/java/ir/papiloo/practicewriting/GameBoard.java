@@ -32,7 +32,7 @@ import ir.papiloo.words.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class GameBoardMaz extends AppCompatActivity implements View.OnClickListener{
+public class GameBoard extends AppCompatActivity implements View.OnClickListener{
 
 
     /* Views */
@@ -40,7 +40,6 @@ public class GameBoardMaz extends AppCompatActivity implements View.OnClickListe
             txtHint;
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5,BtnHint ;
-
     ImageView backImage;
 
     /* Variables */
@@ -122,10 +121,10 @@ public class GameBoardMaz extends AppCompatActivity implements View.OnClickListe
 
         //Wallpaper
         backImage= findViewById(R.id.backImage);
-        backImage.setImageResource(R.drawable.sobh);
+        backImage.setImageResource(R.drawable.zohr);
         // Get a List array of words
 
-        String [] wordsArr = getResources().getStringArray(R.array.WordsMaz);
+        String [] wordsArr = getResources().getStringArray(R.array.WordsSem);
         wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
         // Log.i("log-", "WORDS ARRAY: " + wordsArray);
 
@@ -515,7 +514,7 @@ public class GameBoardMaz extends AppCompatActivity implements View.OnClickListe
     // MARK: - GAME OVER ------------------------------------------------------------
     void gameOver() {
         // Get bestScore
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoardMaz.this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoard.this);
         Configs.bestScore = prefs.getInt("bestScore", Configs.bestScore);
 
         // Save Best Score
@@ -528,8 +527,9 @@ public class GameBoardMaz extends AppCompatActivity implements View.OnClickListe
         playSound("gameOver.mp3");
 
         // Go to Game Over Activity
-        startActivity(new Intent(GameBoardMaz.this, GameOver.class));
+        startActivity(new Intent(GameBoard.this, GameOver.class));
     }
+
 
 
 
