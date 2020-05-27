@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/idea" />
+         />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,7 +28,17 @@
         <Button
            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/ico_insta"
+            tools:ignore="ButtonStyle"
+            android:text="insta"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="whatapp"
             tools:ignore="ButtonStyle" />
         <TextView
             android:layout_width="wrap_content"
@@ -38,19 +48,7 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-
-            android:background="@drawable/ico_whatsapp"
-            tools:ignore="ButtonStyle" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" "/>
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/ico_telegram"
-            tools:ignore="ButtonStyle" />
+            android:text="telegram"            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
 

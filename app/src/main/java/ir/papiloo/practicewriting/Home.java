@@ -137,7 +137,6 @@ public class Home extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this, "Item Number " + i , Toast.LENGTH_SHORT).show();
                 if(i==0) {
                     startActivity(new Intent(Home.this, GameBoard.class));
-
                 }
 
             }
@@ -152,16 +151,16 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_sem", "سمنانی", "----", "----"));
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
-        String [] wordsArrFa = getResources().getStringArray(R.array.WordsFa);
+        String [] wordsArrFa = getResources().getStringArray(R.array.english);
         arrayItem.add(new Item("ico_fa", Integer.toString(wordsArrFa.length)));
 
-        String [] wordsArrSem = getResources().getStringArray(R.array.WordsSem);
+        String [] wordsArrSem = getResources().getStringArray(R.array.english);
         arrayItem.add(new Item("ico_sem" ,Integer.toString(wordsArrSem.length)));
 
-        String [] wordsArrSan = getResources().getStringArray(R.array.WordsSan);
+        String [] wordsArrSan = getResources().getStringArray(R.array.english);
         arrayItem.add(new Item("ico_san",Integer.toString(wordsArrSan.length)));
 
-        String [] wordsArrMaz = getResources().getStringArray(R.array.WordsMaz);
+        String [] wordsArrMaz = getResources().getStringArray(R.array.english);
         arrayItem.add(new Item("ico_maz", Integer.toString(wordsArrMaz.length)));
 
     }

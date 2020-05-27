@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,14 +31,14 @@ import ir.papiloo.words.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
-public class GameBoard extends AppCompatActivity implements View.OnClickListener{
-
+public class GameBoardFa extends AppCompatActivity implements View.OnClickListener {
 
     /* Views */
-    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5,
-            txtHint;
+    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5;
     ProgressBar pb;
-    Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5 ;
+    Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5;
+
+
 
     /* Variables */
     Timer gameTimer;
@@ -56,9 +55,10 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     Button [] letterButtons;
     TextView [] letterTxts;
     MediaPlayer mp;
-    String hint="";
+    String hint;
 
-    MarshMallowPermission mmp = new MarshMallowPermission(this);
+
+
 
     // ON START() ------------------------------------------------------------------------
     @Override
@@ -71,7 +71,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // Set progressBar and start the gameTimer
-        pb = (ProgressBar)findViewById(R.id.gbProgressBar);
+        pb = (ProgressBar)findViewById(R.id.progressBar);
         progress = 0;
         pb.setProgress((int) progress);
         startGameTimer();
@@ -91,6 +91,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     }
 
 
+
+
+
     // ON CREATE() ---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,10 +110,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // mp = new MediaPlayer();
 
 
+        // Get a List array of words
+
         String [] wordsArr = getResources().getStringArray(R.array.english);
         wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
         // Log.i("log-", "WORDS ARRAY: " + wordsArray);
-
 
 
         // Init Views
@@ -128,9 +132,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         letter4.setTypeface(Configs.juneGull);
         letter5 = (TextView)findViewById(R.id.letter5);
         letter5.setTypeface(Configs.juneGull);
-        //------
-        txtHint=(TextView) findViewById(R.id.txtHint);
-        //------
 
         letterButt1 = (Button)findViewById(R.id.letterButt1);
         letterButt1.setTypeface(Configs.juneGull);
@@ -147,8 +148,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         letterButt5 = (Button)findViewById(R.id.letterButt5);
         letterButt5.setTypeface(Configs.juneGull);
         letterButt5.setOnClickListener(this);
-
-
+        //----------
         // Make an array of letter buttons
         letterButtons = new Button[5];
         letterButtons[0] = letterButt1;
@@ -172,9 +172,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // MARK: - RESET BUTTON ------------------------------------
-        //Button resetButt = (Button)findViewById(R.id.gbResetButt);
-        Button resetText =(Button) findViewById(R.id.btnDelete);
-        resetText.setOnClickListener(new View.OnClickListener() {
+        Button resetButt = (Button)findViewById(R.id.btnDelete);
+        resetButt.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
               resetWord();
@@ -234,8 +233,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
     void getRandomWord() {
-        //Clear text Hint
-        txtHint.setText("");
 
         // Get a random circle for letters
         Random r = new Random();
@@ -248,29 +245,20 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         wordStr = randomWord;
         Log.i("log-", "RANDOM WORD: " + wordStr);
 
+
         // Get an array of words (if there are multiple words
         Configs.stringsArray = new ArrayList<String>();
 
         if (wordStr.contains(".")) {
             String[] one = wordStr.split(Pattern.quote("."));
             for (String word : one) {
-                Configs.stringsArray.add(one[1]);
-                txtHint.setText(one[0]);
-
-//                if(btnHint.isPressed()) {
-//                    txtHint.setText(one[1]);
-//                    progress=progress+5;
-//                }
-
-
-
+                Configs.stringsArray.add(word);
+                hint=one[0];
             }
-
-
-            Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
+            Log.i("if random", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
         } else {
-            Log.i("log-", "SINGLE WORD: " + wordStr);
+            Log.i("if random", "SINGLE WORD: " + wordStr);
             Configs.stringsArray.add(wordStr);
         }
 
@@ -454,7 +442,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
             // Play a sound
             playSound("rightWord.mp3");
-            //playSound("rightWord.mp3");
 
 
             // Update game timer
@@ -488,7 +475,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     // MARK: - GAME OVER ------------------------------------------------------------
     void gameOver() {
         // Get bestScore
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoard.this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoardFa.this);
         Configs.bestScore = prefs.getInt("bestScore", Configs.bestScore);
 
         // Save Best Score
@@ -501,7 +488,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         playSound("gameOver.mp3");
 
         // Go to Game Over Activity
-        startActivity(new Intent(GameBoard.this, GameOver.class));
+        startActivity(new Intent(GameBoardFa.this, GameOver.class));
     }
 
 
@@ -543,5 +530,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     }
 
 
+    public void btnHintClick(View view) {
 
+    }
 }// @end
