@@ -5,7 +5,8 @@
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
         <item>موبایل.phone</item>
-        <item>پنکها.panke</item>
+        <item>جوراب.socks</item>
+        <item>کفش.shoes</item>
     </string-array>
 
     <string name="bestHome">بهترین رکورد</string>

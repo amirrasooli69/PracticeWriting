@@ -251,26 +251,25 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Get an array of words (if there are multiple words
         Configs.stringsArray = new ArrayList<String>();
 
+        String w="";
         if (wordStr.contains(".")) {
             String[] one = wordStr.split(Pattern.quote("."));
             for (String word : one) {
                 Configs.stringsArray.add(one[1]);
+                w=one[1];
+                Log.i("one 1", one[1]);
+
+
                 txtHint.setText(one[0]);
-
-//                if(btnHint.isPressed()) {
-//                    txtHint.setText(one[1]);
-//                    progress=progress+5;
-//                }
-
-
+                Log.i("one 0", one[0]);
 
             }
 
-
-            Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
+            Log.i("if random", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
         } else {
-            Log.i("log-", "SINGLE WORD: " + wordStr);
+            w=wordStr;
+            Log.i("if random", "SINGLE WORD: " + wordStr);
             Configs.stringsArray.add(wordStr);
         }
 
@@ -278,7 +277,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         // Get the complete word as a List of characters
         charArray = new ArrayList<String>();
-        String[] chArr = wordStr.split("");
+        String[] chArr = w.split("");
         for(int i=0; i<6; i++) {
             String c = chArr[i];
             charArray.add(c);
