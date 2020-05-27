@@ -52,18 +52,11 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
-        play=findViewById(R.id.play);
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Home.this,GameBoard.class));
-            }
-        });
         // Hide ActionBar
         getSupportActionBar().hide();
 
         // Hide Status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         if (!new File("/data/data/" + this.getPackageName()
                 + "/databases/word.sqlite").exists()) {
@@ -152,17 +145,7 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
-        arrayItem.add(new Item("ico_fa", Integer.toString(wordsArrFa.length)));
-
-        String [] wordsArrSem = getResources().getStringArray(R.array.english);
-        arrayItem.add(new Item("ico_sem" ,Integer.toString(wordsArrSem.length)));
-
-        String [] wordsArrSan = getResources().getStringArray(R.array.english);
-        arrayItem.add(new Item("ico_san",Integer.toString(wordsArrSan.length)));
-
-        String [] wordsArrMaz = getResources().getStringArray(R.array.english);
-        arrayItem.add(new Item("ico_maz", Integer.toString(wordsArrMaz.length)));
-
+        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
     }
 
 

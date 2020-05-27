@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context="ir.papiloo.practicewriting.GameBoard"
     android:layoutDirection="rtl"
-    android:keepScreenOn="true">
+    android:keepScreenOn="true"
+    android:background="@drawable/wall_home">
 
     <Button
         android:id="@+id/gbBackButt"
@@ -26,18 +27,19 @@
         android:layout_alignBaseline="@+id/gbBackButt"
         android:layout_centerHorizontal="true"
         android:text="@string/score"
-        android:textColor="#0B0A0A"
+        android:textColor="#F3F1F1"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/gbPointsTxt"
         android:layout_width="43dp"
         android:layout_height="34dp"
-        android:layout_below="@+id/gbBackButt"
+        android:layout_below="@+id/gbScoreTxt"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
-        android:text="00"
-        android:textColor="#000000"
+        android:text="0000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -75,7 +77,8 @@
             android:text=">"
             android:textAllCaps="false"
             android:textColor="@android:color/background_dark"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            />
 
         <TextView
             android:id="@+id/letter1"
