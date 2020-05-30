@@ -52,7 +52,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     String secondWord = "";
     String thirdWord = "";
     String wordByCharacters = "";
-    int randomCircle = 0;
+    int randomCircle = 0,lenght=0;
     Button [] letterButtons;
     TextView [] letterTxts;
     MediaPlayer mp;
@@ -68,7 +68,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Reset score
         Configs.score = 0;
         scoreTxt.setText(String.valueOf(Configs.score));
-
 
         // Set progressBar and start the gameTimer
         pb = (ProgressBar)findViewById(R.id.gbProgressBar);
@@ -102,7 +101,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         getSupportActionBar().hide();
 
         // Hide Status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // mp = new MediaPlayer();
 
@@ -111,60 +110,206 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
         // Log.i("log-", "WORDS ARRAY: " + wordsArray);
 
+        if(lenght == 3)
+        {
+            // Init Views
+            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
 
+            letter1 = (TextView)findViewById(R.id.letter1);
+            letter1.setTypeface(Configs.juneGull);
+            letter2 = (TextView)findViewById(R.id.letter2);
+            letter2.setTypeface(Configs.juneGull);
+            letter3 = (TextView)findViewById(R.id.letter3);
+            letter3.setTypeface(Configs.juneGull);
+
+            //------
+            txtHint=(TextView) findViewById(R.id.txtHint);
+            //------
+
+            letterButt1 = (Button)findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button)findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button)findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+
+            // Make an array of letter buttons
+            letterButtons = new Button[3];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+
+            // Make an array of letters on the top
+            letterTxts = new TextView[3];
+            letterTxts[0] = letter1;
+            letterTxts[1] = letter2;
+            letterTxts[2] = letter3;
+        }
+
+        if(lenght == 4)
+        {
+            // Init Views
+            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            letter1 = (TextView)findViewById(R.id.letter1);
+            letter1.setTypeface(Configs.juneGull);
+            letter2 = (TextView)findViewById(R.id.letter2);
+            letter2.setTypeface(Configs.juneGull);
+            letter3 = (TextView)findViewById(R.id.letter3);
+            letter3.setTypeface(Configs.juneGull);
+            letter4 = (TextView)findViewById(R.id.letter4);
+            letter4.setTypeface(Configs.juneGull);
+
+            //------
+            txtHint=(TextView) findViewById(R.id.txtHint);
+            //------
+
+            letterButt1 = (Button)findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button)findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button)findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button)findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+
+
+
+            // Make an array of letter buttons
+            letterButtons = new Button[4];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+
+
+            // Make an array of letters on the top
+            letterTxts = new TextView[4];
+            letterTxts[0] = letter1;
+            letterTxts[1] = letter2;
+            letterTxts[2] = letter3;
+            letterTxts[3] = letter4;
+        }
+
+        if(lenght == 5)
+        {
+            // Init Views
+            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            letter1 = (TextView)findViewById(R.id.letter1);
+            letter1.setTypeface(Configs.juneGull);
+            letter2 = (TextView)findViewById(R.id.letter2);
+            letter2.setTypeface(Configs.juneGull);
+            letter3 = (TextView)findViewById(R.id.letter3);
+            letter3.setTypeface(Configs.juneGull);
+            letter4 = (TextView)findViewById(R.id.letter4);
+            letter4.setTypeface(Configs.juneGull);
+            letter5 = (TextView)findViewById(R.id.letter5);
+            letter5.setTypeface(Configs.juneGull);
+            //------
+            txtHint=(TextView) findViewById(R.id.txtHint);
+            //------
+
+            letterButt1 = (Button)findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button)findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button)findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button)findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button)findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+
+
+            // Make an array of letter buttons
+            letterButtons = new Button[5];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
+
+
+            // Make an array of letters on the top
+            letterTxts = new TextView[5];
+            letterTxts[0] = letter1;
+            letterTxts[1] = letter2;
+            letterTxts[2] = letter3;
+            letterTxts[3] = letter4;
+            letterTxts[4] = letter5;
+        }
 
         // Init Views
-        sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
-        scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
-        scoreTxt.setTypeface(Configs.juneGull);
-
-        letter1 = (TextView)findViewById(R.id.letter1);
-        letter1.setTypeface(Configs.juneGull);
-        letter2 = (TextView)findViewById(R.id.letter2);
-        letter2.setTypeface(Configs.juneGull);
-        letter3 = (TextView)findViewById(R.id.letter3);
-        letter3.setTypeface(Configs.juneGull);
-        letter4 = (TextView)findViewById(R.id.letter4);
-        letter4.setTypeface(Configs.juneGull);
-        letter5 = (TextView)findViewById(R.id.letter5);
-        letter5.setTypeface(Configs.juneGull);
-        //------
-        txtHint=(TextView) findViewById(R.id.txtHint);
-        //------
-
-        letterButt1 = (Button)findViewById(R.id.letterButt1);
-        letterButt1.setTypeface(Configs.juneGull);
-        letterButt1.setOnClickListener(this);
-        letterButt2 = (Button)findViewById(R.id.letterButt2);
-        letterButt2.setTypeface(Configs.juneGull);
-        letterButt2.setOnClickListener(this);
-        letterButt3 = (Button)findViewById(R.id.letterButt3);
-        letterButt3.setTypeface(Configs.juneGull);
-        letterButt3.setOnClickListener(this);
-        letterButt4 = (Button)findViewById(R.id.letterButt4);
-        letterButt4.setTypeface(Configs.juneGull);
-        letterButt4.setOnClickListener(this);
-        letterButt5 = (Button)findViewById(R.id.letterButt5);
-        letterButt5.setTypeface(Configs.juneGull);
-        letterButt5.setOnClickListener(this);
-
-
-        // Make an array of letter buttons
-        letterButtons = new Button[5];
-        letterButtons[0] = letterButt1;
-        letterButtons[1] = letterButt2;
-        letterButtons[2] = letterButt3;
-        letterButtons[3] = letterButt4;
-        letterButtons[4] = letterButt5;
-
-
-        // Make an array of letters on the top
-        letterTxts = new TextView[5];
-        letterTxts[0] = letter1;
-        letterTxts[1] = letter2;
-        letterTxts[2] = letter3;
-        letterTxts[3] = letter4;
-        letterTxts[4] = letter5;
+//        sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
+//        scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
+//        scoreTxt.setTypeface(Configs.juneGull);
+//
+//        letter1 = (TextView)findViewById(R.id.letter1);
+//        letter1.setTypeface(Configs.juneGull);
+//        letter2 = (TextView)findViewById(R.id.letter2);
+//        letter2.setTypeface(Configs.juneGull);
+//        letter3 = (TextView)findViewById(R.id.letter3);
+//        letter3.setTypeface(Configs.juneGull);
+//        letter4 = (TextView)findViewById(R.id.letter4);
+//        letter4.setTypeface(Configs.juneGull);
+//        letter5 = (TextView)findViewById(R.id.letter5);
+//        letter5.setTypeface(Configs.juneGull);
+//        //------
+//        txtHint=(TextView) findViewById(R.id.txtHint);
+//        //------
+//
+//        letterButt1 = (Button)findViewById(R.id.letterButt1);
+//        letterButt1.setTypeface(Configs.juneGull);
+//        letterButt1.setOnClickListener(this);
+//        letterButt2 = (Button)findViewById(R.id.letterButt2);
+//        letterButt2.setTypeface(Configs.juneGull);
+//        letterButt2.setOnClickListener(this);
+//        letterButt3 = (Button)findViewById(R.id.letterButt3);
+//        letterButt3.setTypeface(Configs.juneGull);
+//        letterButt3.setOnClickListener(this);
+//        letterButt4 = (Button)findViewById(R.id.letterButt4);
+//        letterButt4.setTypeface(Configs.juneGull);
+//        letterButt4.setOnClickListener(this);
+//        letterButt5 = (Button)findViewById(R.id.letterButt5);
+//        letterButt5.setTypeface(Configs.juneGull);
+//        letterButt5.setOnClickListener(this);
+//
+//
+//        // Make an array of letter buttons
+//        letterButtons = new Button[5];
+//        letterButtons[0] = letterButt1;
+//        letterButtons[1] = letterButt2;
+//        letterButtons[2] = letterButt3;
+//        letterButtons[3] = letterButt4;
+//        letterButtons[4] = letterButt5;
+//
+//
+//        // Make an array of letters on the top
+//        letterTxts = new TextView[5];
+//        letterTxts[0] = letter1;
+//        letterTxts[1] = letter2;
+//        letterTxts[2] = letter3;
+//        letterTxts[3] = letter4;
+//        letterTxts[4] = letter5;
 
 
 
@@ -208,7 +353,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     // MARK: - RESET LETTER BUTTONS ------------------------------------------------------
     void resetLetterButtons() {
 
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<lenght; i++) {
             letterButtons[i].setEnabled(true);
             letterButtons[i].setBackgroundResource(Configs.circlesArray[randomCircle]);
             letterButtons[i].setTextColor(Color.parseColor("#ffffff"));
@@ -222,7 +367,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     // MARK: - RESET LETTERS ON THE TOP ------------------------------------------------------
     void resetLettersTxt() {
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<lenght; i++) {
             letterTxts[i].setText("");
             letterTxts[i].setBackgroundResource(R.drawable.circle_corner_white);
         }
@@ -246,6 +391,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Get a random word from the string-arrays
         String randomWord = wordsArray.get(new Random().nextInt(wordsArray.size()));
         wordStr = randomWord;
+
         Log.i("log-", "RANDOM WORD: " + wordStr);
 
         // Get an array of words (if there are multiple words
@@ -260,10 +406,12 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 Log.i("one 1", one[1]);
 
 
+
                 txtHint.setText(one[0]);
                 Log.i("one 0", one[0]);
 
             }
+            lenght=w.length();
 
             Log.i("if random", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
@@ -271,6 +419,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             w=wordStr;
             Log.i("if random", "SINGLE WORD: " + wordStr);
             Configs.stringsArray.add(wordStr);
+            lenght=w.length();
         }
 
 
@@ -278,7 +427,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Get the complete word as a List of characters
         charArray = new ArrayList<String>();
         String[] chArr = w.split("");
-        for(int i=0; i<6; i++) {
+        for(int i=0; i<lenght; i++) {
             String c = chArr[i];
             charArray.add(c);
         }
@@ -305,31 +454,83 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Log.i("log-", "COMBINATION: " + randomCombination);
 
 
-        switch (randomCombination) {
-            case 0:
-                letterButtons[1].setText(charArray.get(0));
-                letterButtons[0].setText(charArray.get(1));
-                letterButtons[4].setText(charArray.get(2));
-                letterButtons[2].setText(charArray.get(3));
-                letterButtons[3].setText(charArray.get(4));
-            break;
+        if(lenght==3)
+        {
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[2].setText(charArray.get(2));
+                    break;
 
-            case 1:
-                letterButtons[3].setText(charArray.get(0));
-                letterButtons[0].setText(charArray.get(1));
-                letterButtons[4].setText(charArray.get(2));
-                letterButtons[1].setText(charArray.get(3));
-                letterButtons[2].setText(charArray.get(4));
-            break;
+                case 1:
+                    letterButtons[2].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[1].setText(charArray.get(1));
+                    break;
 
-            case 2:
-                letterButtons[4].setText(charArray.get(0));
-                letterButtons[1].setText(charArray.get(1));
-                letterButtons[0].setText(charArray.get(2));
-                letterButtons[3].setText(charArray.get(3));
-                letterButtons[2].setText(charArray.get(4));
-            break;
+                case 2:
+                    letterButtons[0].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(1));
+                    break;
+            }
         }
+
+        if(lenght==4)
+        {
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[3].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    break;
+
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[1].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(2));
+                    break;
+
+                case 2:
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[0].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(0));
+                    break;
+            }
+        }
+        if(lenght==5)
+        {
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    break;
+
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[1].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(4));
+                    break;
+
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[0].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(4));
+                    break;
+            }
+        }
+
 
 
         // Call reset Word function
@@ -421,7 +622,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // You've tapped all buttons, so check your result
-        if (tapsCount == 4) { checkResult(); }
+        if (tapsCount == lenght) { checkResult(); }
 
 
         // Play a sound
