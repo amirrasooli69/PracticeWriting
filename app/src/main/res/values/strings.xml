@@ -4,7 +4,6 @@
     <string name="developer_name">توسعه دهنده:گروه نرم افزاری پاپیلو</string>
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
-<!--        <item>sssss.shoes</item>-->
         <item>پسرها.boys</item>
         <item>دخترها.girls</item>
 
@@ -12,7 +11,7 @@
 
     <string name="bestHome">بهترین رکورد</string>
 
-    <string name="share1">رکورد من در بازی "پنج حرفی پاپیلو" :</string>
+    <string name="share1">رکورد من در بازی "کلمات پاپیلو" :</string>
     <string name="share2">میتونی رکورد منو بزنی :)</string>
     <string name="score">امتیاز</string>
 
