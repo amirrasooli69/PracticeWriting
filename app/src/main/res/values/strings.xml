@@ -4,9 +4,10 @@
     <string name="developer_name">توسعه دهنده:گروه نرم افزاری پاپیلو</string>
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
-        <item>موبایل.phone</item>
-        <item>جوراب.socks</item>
-        <item>کفش.shoes</item>
+<!--        <item>sssss.shoes</item>-->
+        <item>پسرها.boys</item>
+        <item>دخترها.girls</item>
+
     </string-array>
 
     <string name="bestHome">بهترین رکورد</string>

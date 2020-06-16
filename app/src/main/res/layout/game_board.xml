@@ -44,7 +44,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtHint"
+        android:id="@+id/txtanswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gbPointsTxt"
@@ -59,7 +59,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_below="@id/txtHint"
+        android:layout_below="@id/txtanswer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">

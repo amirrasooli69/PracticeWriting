@@ -34,12 +34,10 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class GameBoard extends AppCompatActivity implements View.OnClickListener{
 
-
     /* Views */
-    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5,
-            txtHint;
+    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5,txtanswer;
     ProgressBar pb;
-    Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5 ;
+    Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5;
 
     /* Variables */
     Timer gameTimer;
@@ -52,13 +50,14 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     String secondWord = "";
     String thirdWord = "";
     String wordByCharacters = "";
-    int randomCircle = 0,lenght=0;
+    int randomCircle = 0;
     Button [] letterButtons;
     TextView [] letterTxts;
     MediaPlayer mp;
-    String hint="";
 
     MarshMallowPermission mmp = new MarshMallowPermission(this);
+
+    int lenght=5;
 
     // ON START() ------------------------------------------------------------------------
     @Override
@@ -68,6 +67,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Reset score
         Configs.score = 0;
         scoreTxt.setText(String.valueOf(Configs.score));
+
 
         // Set progressBar and start the gameTimer
         pb = (ProgressBar)findViewById(R.id.gbProgressBar);
@@ -86,9 +86,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // Get a random word from words string-array
+        //lenght=
         getRandomWord();
     }
-
 
     // ON CREATE() ---------------------------------------------------------------
     @Override
@@ -105,51 +105,13 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         // mp = new MediaPlayer();
 
+        // Get a List array of words
 
         String [] wordsArr = getResources().getStringArray(R.array.english);
         wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
         // Log.i("log-", "WORDS ARRAY: " + wordsArray);
 
-        if(lenght == 3)
-        {
-            // Init Views
-            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
-            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
-            scoreTxt.setTypeface(Configs.juneGull);
 
-            letter1 = (TextView)findViewById(R.id.letter1);
-            letter1.setTypeface(Configs.juneGull);
-            letter2 = (TextView)findViewById(R.id.letter2);
-            letter2.setTypeface(Configs.juneGull);
-            letter3 = (TextView)findViewById(R.id.letter3);
-            letter3.setTypeface(Configs.juneGull);
-
-            //------
-            txtHint=(TextView) findViewById(R.id.txtHint);
-            //------
-
-            letterButt1 = (Button)findViewById(R.id.letterButt1);
-            letterButt1.setTypeface(Configs.juneGull);
-            letterButt1.setOnClickListener(this);
-            letterButt2 = (Button)findViewById(R.id.letterButt2);
-            letterButt2.setTypeface(Configs.juneGull);
-            letterButt2.setOnClickListener(this);
-            letterButt3 = (Button)findViewById(R.id.letterButt3);
-            letterButt3.setTypeface(Configs.juneGull);
-            letterButt3.setOnClickListener(this);
-
-            // Make an array of letter buttons
-            letterButtons = new Button[3];
-            letterButtons[0] = letterButt1;
-            letterButtons[1] = letterButt2;
-            letterButtons[2] = letterButt3;
-
-            // Make an array of letters on the top
-            letterTxts = new TextView[3];
-            letterTxts[0] = letter1;
-            letterTxts[1] = letter2;
-            letterTxts[2] = letter3;
-        }
 
         if(lenght == 4)
         {
@@ -158,57 +120,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
             scoreTxt.setTypeface(Configs.juneGull);
 
-            letter1 = (TextView)findViewById(R.id.letter1);
-            letter1.setTypeface(Configs.juneGull);
-            letter2 = (TextView)findViewById(R.id.letter2);
-            letter2.setTypeface(Configs.juneGull);
-            letter3 = (TextView)findViewById(R.id.letter3);
-            letter3.setTypeface(Configs.juneGull);
-            letter4 = (TextView)findViewById(R.id.letter4);
-            letter4.setTypeface(Configs.juneGull);
-
-            //------
-            txtHint=(TextView) findViewById(R.id.txtHint);
-            //------
-
-            letterButt1 = (Button)findViewById(R.id.letterButt1);
-            letterButt1.setTypeface(Configs.juneGull);
-            letterButt1.setOnClickListener(this);
-            letterButt2 = (Button)findViewById(R.id.letterButt2);
-            letterButt2.setTypeface(Configs.juneGull);
-            letterButt2.setOnClickListener(this);
-            letterButt3 = (Button)findViewById(R.id.letterButt3);
-            letterButt3.setTypeface(Configs.juneGull);
-            letterButt3.setOnClickListener(this);
-            letterButt4 = (Button)findViewById(R.id.letterButt4);
-            letterButt4.setTypeface(Configs.juneGull);
-            letterButt4.setOnClickListener(this);
-
-
-
-            // Make an array of letter buttons
-            letterButtons = new Button[4];
-            letterButtons[0] = letterButt1;
-            letterButtons[1] = letterButt2;
-            letterButtons[2] = letterButt3;
-            letterButtons[3] = letterButt4;
-
-
-            // Make an array of letters on the top
-            letterTxts = new TextView[4];
-            letterTxts[0] = letter1;
-            letterTxts[1] = letter2;
-            letterTxts[2] = letter3;
-            letterTxts[3] = letter4;
-        }
-
-        if(lenght == 5)
-        {
-            // Init Views
-            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
-            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
-            scoreTxt.setTypeface(Configs.juneGull);
-
+            txtanswer=findViewById(R.id.txtanswer);
             letter1 = (TextView)findViewById(R.id.letter1);
             letter1.setTypeface(Configs.juneGull);
             letter2 = (TextView)findViewById(R.id.letter2);
@@ -219,9 +131,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letter4.setTypeface(Configs.juneGull);
             letter5 = (TextView)findViewById(R.id.letter5);
             letter5.setTypeface(Configs.juneGull);
-            //------
-            txtHint=(TextView) findViewById(R.id.txtHint);
-            //------
+            letter5.setVisibility(View.INVISIBLE);
+
 
             letterButt1 = (Button)findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
@@ -238,8 +149,62 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt5 = (Button)findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.INVISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[5];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
 
 
+            // Make an array of letters on the top
+            letterTxts = new TextView[5];
+            letterTxts[0] = letter1;
+            letterTxts[1] = letter2;
+            letterTxts[2] = letter3;
+            letterTxts[3] = letter4;
+            letterTxts[4] = letter5;
+
+        }
+        if (lenght == 5)
+        {
+            // Init Views
+            sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            txtanswer=findViewById(R.id.txtanswer);
+            letter1 = (TextView)findViewById(R.id.letter1);
+            letter1.setTypeface(Configs.juneGull);
+            letter2 = (TextView)findViewById(R.id.letter2);
+            letter2.setTypeface(Configs.juneGull);
+            letter3 = (TextView)findViewById(R.id.letter3);
+            letter3.setTypeface(Configs.juneGull);
+            letter4 = (TextView)findViewById(R.id.letter4);
+            letter4.setTypeface(Configs.juneGull);
+            letter5 = (TextView)findViewById(R.id.letter5);
+            letter5.setTypeface(Configs.juneGull);
+
+            letterButt1 = (Button)findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button)findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button)findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button)findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button)findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            //----------
             // Make an array of letter buttons
             letterButtons = new Button[5];
             letterButtons[0] = letterButt1;
@@ -258,102 +223,43 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterTxts[4] = letter5;
         }
 
-        // Init Views
-//        sTitleTxt = (TextView)findViewById(R.id.gbScoreTxt);
-//        scoreTxt = (TextView)findViewById(R.id.gbPointsTxt);
-//        scoreTxt.setTypeface(Configs.juneGull);
-//
-//        letter1 = (TextView)findViewById(R.id.letter1);
-//        letter1.setTypeface(Configs.juneGull);
-//        letter2 = (TextView)findViewById(R.id.letter2);
-//        letter2.setTypeface(Configs.juneGull);
-//        letter3 = (TextView)findViewById(R.id.letter3);
-//        letter3.setTypeface(Configs.juneGull);
-//        letter4 = (TextView)findViewById(R.id.letter4);
-//        letter4.setTypeface(Configs.juneGull);
-//        letter5 = (TextView)findViewById(R.id.letter5);
-//        letter5.setTypeface(Configs.juneGull);
-//        //------
-//        txtHint=(TextView) findViewById(R.id.txtHint);
-//        //------
-//
-//        letterButt1 = (Button)findViewById(R.id.letterButt1);
-//        letterButt1.setTypeface(Configs.juneGull);
-//        letterButt1.setOnClickListener(this);
-//        letterButt2 = (Button)findViewById(R.id.letterButt2);
-//        letterButt2.setTypeface(Configs.juneGull);
-//        letterButt2.setOnClickListener(this);
-//        letterButt3 = (Button)findViewById(R.id.letterButt3);
-//        letterButt3.setTypeface(Configs.juneGull);
-//        letterButt3.setOnClickListener(this);
-//        letterButt4 = (Button)findViewById(R.id.letterButt4);
-//        letterButt4.setTypeface(Configs.juneGull);
-//        letterButt4.setOnClickListener(this);
-//        letterButt5 = (Button)findViewById(R.id.letterButt5);
-//        letterButt5.setTypeface(Configs.juneGull);
-//        letterButt5.setOnClickListener(this);
-//
-//
-//        // Make an array of letter buttons
-//        letterButtons = new Button[5];
-//        letterButtons[0] = letterButt1;
-//        letterButtons[1] = letterButt2;
-//        letterButtons[2] = letterButt3;
-//        letterButtons[3] = letterButt4;
-//        letterButtons[4] = letterButt5;
-//
-//
-//        // Make an array of letters on the top
-//        letterTxts = new TextView[5];
-//        letterTxts[0] = letter1;
-//        letterTxts[1] = letter2;
-//        letterTxts[2] = letter3;
-//        letterTxts[3] = letter4;
-//        letterTxts[4] = letter5;
-
-
-
-
 
 
         // MARK: - RESET BUTTON ------------------------------------
-        //Button resetButt = (Button)findViewById(R.id.gbResetButt);
-        Button resetText =(Button) findViewById(R.id.btnDelete);
-        resetText.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              resetWord();
+        Button resetButt = (Button)findViewById(R.id.btnDelete);
+        resetButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetWord();
 
-              // Play a sound
-              playSound("resetWord.mp3");
-         }});
+                // Play a sound
+                playSound("resetWord.mp3");
+            }});
 
 
 
         // MARK: - BACK BUTTON ------------------------------------
         Button backButt = (Button)findViewById(R.id.gbBackButt);
         backButt.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              gameTimer.cancel();
-              finish();
-        }});
+            @Override
+            public void onClick(View view) {
+                gameTimer.cancel();
+                finish();
+            }});
 
 
 
     }// end onCreate()
-
 
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
-
     // MARK: - RESET LETTER BUTTONS ------------------------------------------------------
     void resetLetterButtons() {
 
-        for (int i = 0; i<lenght; i++) {
+        for (int i = 0; i<5; i++) {
             letterButtons[i].setEnabled(true);
             letterButtons[i].setBackgroundResource(Configs.circlesArray[randomCircle]);
             letterButtons[i].setTextColor(Color.parseColor("#ffffff"));
@@ -363,24 +269,16 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         resetLettersTxt();
     }
 
-
-
     // MARK: - RESET LETTERS ON THE TOP ------------------------------------------------------
     void resetLettersTxt() {
-        for (int i = 0; i<lenght; i++) {
+        for (int i = 0; i<5; i++) {
             letterTxts[i].setText("");
             letterTxts[i].setBackgroundResource(R.drawable.circle_corner_white);
         }
     }
 
-
-
-
-
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
-    void getRandomWord() {
-        //Clear text Hint
-        txtHint.setText("");
+    int getRandomWord() {
 
         // Get a random circle for letters
         Random r = new Random();
@@ -391,59 +289,54 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Get a random word from the string-arrays
         String randomWord = wordsArray.get(new Random().nextInt(wordsArray.size()));
         wordStr = randomWord;
-
         Log.i("log-", "RANDOM WORD: " + wordStr);
+
 
         // Get an array of words (if there are multiple words
         Configs.stringsArray = new ArrayList<String>();
 
-        String w="";
+        String w = "";
         if (wordStr.contains(".")) {
             String[] one = wordStr.split(Pattern.quote("."));
             for (String word : one) {
-                Configs.stringsArray.add(one[1]);
+                Configs.stringsArray.add(word);
                 w=one[1];
-                Log.i("one 1", one[1]);
-
-
-
-                txtHint.setText(one[0]);
-                Log.i("one 0", one[0]);
-
+                lenght=w.length();
+                txtanswer.setText(one[0]);
             }
-            lenght=w.length();
-
-            Log.i("if random", "\n\nWORDS ARRAY: " + Configs.stringsArray);
+            Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
         } else {
-            w=wordStr;
-            Log.i("if random", "SINGLE WORD: " + wordStr);
+            Log.i("log-", "SINGLE WORD: " + wordStr);
             Configs.stringsArray.add(wordStr);
-            lenght=w.length();
+            w=wordStr;
         }
-
-
 
         // Get the complete word as a List of characters
         charArray = new ArrayList<String>();
         String[] chArr = w.split("");
-        for(int i=0; i<lenght; i++) {
-            String c = chArr[i];
-            charArray.add(c);
+        if(lenght==5)
+        {
+            for(int i=0; i<6; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
         }
+        if(lenght==4)
+        {
+            for(int i=0; i<5; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
+
         charArray.remove(0);
         Log.i("log-", "CHARS ARRAY: " + charArray);
 
-
-
         // Get Random characthers function
         getRandomChar();
+        return lenght;
     }
-
-
-
-
-
 
     // MARK: - GET RANDOM CHARACTERS --------------------------------------------------------
     void getRandomChar() {
@@ -454,56 +347,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Log.i("log-", "COMBINATION: " + randomCombination);
 
 
-        if(lenght==3)
-        {
-            switch (randomCombination) {
-                case 0:
-                    letterButtons[1].setText(charArray.get(0));
-                    letterButtons[0].setText(charArray.get(1));
-                    letterButtons[2].setText(charArray.get(2));
-                    break;
-
-                case 1:
-                    letterButtons[2].setText(charArray.get(0));
-                    letterButtons[0].setText(charArray.get(1));
-                    letterButtons[1].setText(charArray.get(1));
-                    break;
-
-                case 2:
-                    letterButtons[0].setText(charArray.get(0));
-                    letterButtons[1].setText(charArray.get(2));
-                    letterButtons[2].setText(charArray.get(1));
-                    break;
-            }
-        }
-
-        if(lenght==4)
-        {
-            switch (randomCombination) {
-                case 0:
-                    letterButtons[1].setText(charArray.get(0));
-                    letterButtons[0].setText(charArray.get(1));
-                    letterButtons[3].setText(charArray.get(2));
-                    letterButtons[2].setText(charArray.get(3));
-                    break;
-
-                case 1:
-                    letterButtons[3].setText(charArray.get(0));
-                    letterButtons[0].setText(charArray.get(1));
-                    letterButtons[1].setText(charArray.get(3));
-                    letterButtons[2].setText(charArray.get(2));
-                    break;
-
-                case 2:
-                    letterButtons[1].setText(charArray.get(1));
-                    letterButtons[0].setText(charArray.get(2));
-                    letterButtons[3].setText(charArray.get(3));
-                    letterButtons[2].setText(charArray.get(0));
-                    break;
-            }
-        }
-        if(lenght==5)
-        {
+        if(lenght==5) {
             switch (randomCombination) {
                 case 0:
                     letterButtons[1].setText(charArray.get(0));
@@ -530,16 +374,36 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                     break;
             }
         }
+        if(lenght==4) {
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[3].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    break;
 
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[2].setText(charArray.get(2));
+                    letterButtons[1].setText(charArray.get(3));
+                    break;
+
+                case 2:
+                    letterButtons[2].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[0].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    break;
+            }
+        }
 
 
         // Call reset Word function
         resetWord();
 
     }
-
-
-
 
     // MARK: - RESET WORDS BUTTONS --------------------------------------------------------
     void resetWord() {
@@ -556,12 +420,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         resetLettersTxt();
     }
 
-
-
-
-
     // MARK: - START GAME TIMER ---------------------------------------------------------------
     void startGameTimer() {
+
         float delay = 10*Configs.roundTime;
 
         gameTimer =  new Timer();
@@ -574,18 +435,17 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                         progress = progress + 10/Configs.roundTime;
                         pb.setProgress((int) progress);
                         // Log.i("log-", "PROGRESS: " + progress);
-
+                        //txtTest.setText((String)((int) progress));
+                        Log.i("log-", "PROGRESS: " + progress);
                         // TIME ENDED, GAME OVER!
                         if (progress >= 100) {
                             gameTimer.cancel();
-
                             gameOver();
                         }
-            }});}
+                    }});}
         }, (int)delay, (int)delay);
 
     }
-
 
     // UPDATE GAME TIMER ------------------------------------------------
     void updateTimer() {
@@ -593,11 +453,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         pb.setProgress((int) progress);
         startGameTimer();
     }
-
-
-
-
-
 
     // MARK: - LETTER BUTTON TAPPED ----------------------------------------------
     @Override
@@ -622,7 +477,16 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // You've tapped all buttons, so check your result
-        if (tapsCount == lenght) { checkResult(); }
+        Log.i("log-", "tapcount: " + tapsCount);
+        Log.i("log-", "Lenght: " + lenght);
+
+        if (tapsCount == lenght -1)
+        {
+            Log.i("log-", "tapcount: " + tapsCount);
+            checkResult();
+
+
+        }
 
 
         // Play a sound
@@ -630,12 +494,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     }
 
-
-
-
-
     // MARK: - CHECK RESULT ------------------------------------------------------------
     void checkResult() {
+
 
         // YOU'VE GUESSED THE WORD!
         firstWord = Configs.stringsArray.get(0);
@@ -654,7 +515,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
             // Play a sound
             playSound("rightWord.mp3");
-            //playSound("rightWord.mp3");
 
 
             // Update game timer
@@ -671,7 +531,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             getRandomWord();
 
 
-        // WORD IS WRONG
+            // WORD IS WRONG
         } else {
             wordByCharacters = "";
             getRandomChar();
@@ -680,10 +540,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             playSound("resetWord.mp3");
         }
     }
-
-
-
-
 
     // MARK: - GAME OVER ------------------------------------------------------------
     void gameOver() {
@@ -704,12 +560,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         startActivity(new Intent(GameBoard.this, GameOver.class));
     }
 
-
-
-
-
-
-
     // MARK: - PLAY SOUND --------------------------------------------------------
     void playSound(String soundName) {
         try {
@@ -728,13 +578,10 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     mp.release();
-            }});
+                }});
 
         } catch (Exception e) { e.printStackTrace(); }
     }
-
-
-
 
     @Override
     protected void onDestroy() {
@@ -742,6 +589,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         gameTimer.cancel();
     }
 
+    public void btnHintClick(View view) {
 
-
+    }
 }// @end
