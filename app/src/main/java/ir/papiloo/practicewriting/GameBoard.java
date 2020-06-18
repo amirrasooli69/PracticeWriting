@@ -259,17 +259,17 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             scoreTxt.setTypeface(Configs.juneGull);
 
             txtanswer = findViewById(R.id.txtanswer);
-            letter1 = (TextView) findViewById(R.id.letter1);
-            letter1.setTypeface(Configs.juneGull);
-            letter2 = (TextView) findViewById(R.id.letter2);
-            letter2.setTypeface(Configs.juneGull);
-            letter3 = (TextView) findViewById(R.id.letter3);
-            letter3.setTypeface(Configs.juneGull);
-            letter4 = (TextView) findViewById(R.id.letter4);
-            letter4.setTypeface(Configs.juneGull);
-            letter5 = (TextView) findViewById(R.id.letter5);
-            letter5.setTypeface(Configs.juneGull);
-            letter5.setVisibility(View.INVISIBLE);
+//            letter1 = (TextView) findViewById(R.id.letter1);
+//            letter1.setTypeface(Configs.juneGull);
+//            letter2 = (TextView) findViewById(R.id.letter2);
+//            letter2.setTypeface(Configs.juneGull);
+//            letter3 = (TextView) findViewById(R.id.letter3);
+//            letter3.setTypeface(Configs.juneGull);
+//            letter4 = (TextView) findViewById(R.id.letter4);
+//            letter4.setTypeface(Configs.juneGull);
+//            letter5 = (TextView) findViewById(R.id.letter5);
+//            letter5.setTypeface(Configs.juneGull);
+//            letter5.setVisibility(View.INVISIBLE);
 
 
             letterButt1 = (Button) findViewById(R.id.letterButt1);
@@ -315,17 +315,17 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             scoreTxt.setTypeface(Configs.juneGull);
 
             txtanswer = findViewById(R.id.txtanswer);
-            letter1 = (TextView) findViewById(R.id.letter1);
-            letter1.setTypeface(Configs.juneGull);
-            letter2 = (TextView) findViewById(R.id.letter2);
-            letter2.setTypeface(Configs.juneGull);
-            letter3 = (TextView) findViewById(R.id.letter3);
-            letter3.setTypeface(Configs.juneGull);
-            letter4 = (TextView) findViewById(R.id.letter4);
-            letter4.setTypeface(Configs.juneGull);
-            letter5 = (TextView) findViewById(R.id.letter5);
-            letter5.setTypeface(Configs.juneGull);
-            letter5.setVisibility(View.VISIBLE);
+//            letter1 = (TextView) findViewById(R.id.letter1);
+//            letter1.setTypeface(Configs.juneGull);
+//            letter2 = (TextView) findViewById(R.id.letter2);
+//            letter2.setTypeface(Configs.juneGull);
+//            letter3 = (TextView) findViewById(R.id.letter3);
+//            letter3.setTypeface(Configs.juneGull);
+//            letter4 = (TextView) findViewById(R.id.letter4);
+//            letter4.setTypeface(Configs.juneGull);
+//            letter5 = (TextView) findViewById(R.id.letter5);
+//            letter5.setTypeface(Configs.juneGull);
+//            letter5.setVisibility(View.VISIBLE);
 
 
             letterButt1 = (Button) findViewById(R.id.letterButt1);
@@ -379,16 +379,16 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         }
 
         // Reset letters textViews on the top
-        resetLettersTxt();
+        //resetLettersTxt();
     }
 
     // MARK: - RESET LETTERS ON THE TOP ------------------------------------------------------
-    void resetLettersTxt() {
-        for (int i = 0; i<5; i++) {
-            letterTxts[i].setText("");
-            letterTxts[i].setBackgroundResource(R.drawable.circle_corner_white);
-        }
-    }
+//    void resetLettersTxt() {
+//        for (int i = 0; i<5; i++) {
+//            letterTxts[i].setText("");
+//            letterTxts[i].setBackgroundResource(R.drawable.circle_corner_white);
+//        }
+//    }
 
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
     int getRandomWord() {
@@ -525,7 +525,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     void resetWord() {
         // Reset tap Counts
         tapsCount = -1;
-        //txtWord.setText("");
+        txtWord.setText("");
         beforeChar="";
 
         // reset wordByCharacters
@@ -535,7 +535,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         resetLetterButtons();
 
         // Reset top Letters
-        resetLettersTxt();
+        //resetLettersTxt();
     }
 
     // MARK: - START GAME TIMER ---------------------------------------------------------------
@@ -576,27 +576,17 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         Button lettButt = (Button)findViewById(v.getId());
-//        if(!txtWord.getText().toString().equals("")) {
-//            beforeChar = (String) txtWord.getText();
-//        }
-//        else
-//        {
-            //txtWord.setText(lettButt.getText());
             beforeChar= beforeChar + lettButt.getText();
-            Log.i("log-", "BeforCharacter: " + beforeChar);
             txtWord.setText(beforeChar);
-            Log.i("log-", "BeforCharacter: " + beforeChar);
 
 
-        //}
-//        String presButton = (String) lettButt.getText();
-//        txtWord.setText(beforeChar + presButton);
+
         tapsCount = tapsCount+1;
         // Log.i("log-", "TAPS COUNT: " + tapsCount);
 
         // Set letter
-        letterTxts[tapsCount].setText(lettButt.getText().toString() );
-        letterTxts[tapsCount].setBackgroundResource(Configs.circlesArray[randomCircle]);
+//        letterTxts[tapsCount].setText(lettButt.getText().toString() );
+//        letterTxts[tapsCount].setBackgroundResource(Configs.circlesArray[randomCircle]);
 
         // Change buttons status
         lettButt.setBackgroundResource(R.drawable.circle_corner_white);
@@ -604,8 +594,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         lettButt.setEnabled(false);
 
         // Create a string by shown characters
-        wordByCharacters = wordByCharacters + letterTxts[tapsCount].getText().toString();
-        Log.i("log-", "WORD BY CHARS: " + wordByCharacters);
+        //wordByCharacters = wordByCharacters + letterTxts[tapsCount].getText().toString();
+        //Log.i("log-", "WORD BY CHARS: " + wordByCharacters);
 
 
         // You've tapped all buttons, so check your result

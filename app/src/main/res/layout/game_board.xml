@@ -61,7 +61,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/txtanswer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
 
@@ -82,59 +82,72 @@
             />
 
         <TextView
-            android:id="@+id/letter1"
-            android:layout_width="50dp"
+            android:id="@+id/txtWord"
+            android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_white"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#fff"
-            android:textSize="24sp" />
+            android:layout_below="@+id/txtanswer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:hint="type word"
+            android:textColor="#03A9F4"
+            android:textColorHint="#1FD847"
+            android:textSize="35sp" />
 
-        <TextView
-            android:id="@+id/letter2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_white"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#fff"
-            android:textSize="24sp" />
+        <!--        <TextView-->
+<!--            android:id="@+id/letter1"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginLeft="7dp"-->
+<!--            android:background="@drawable/circle_corner_white"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="24sp" />-->
 
-        <TextView
-            android:id="@+id/letter3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_white"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#fff"
-            android:textSize="24sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/letter2"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginLeft="7dp"-->
+<!--            android:background="@drawable/circle_corner_white"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="24sp" />-->
 
-        <TextView
-            android:id="@+id/letter4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_white"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#fff"
-            android:textSize="24sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/letter3"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginLeft="7dp"-->
+<!--            android:background="@drawable/circle_corner_white"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="24sp" />-->
 
-        <TextView
-            android:id="@+id/letter5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_white"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#fff"
-            android:textSize="24sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/letter4"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginLeft="7dp"-->
+<!--            android:background="@drawable/circle_corner_white"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="24sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/letter5"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginLeft="7dp"-->
+<!--            android:background="@drawable/circle_corner_white"-->
+<!--            android:gravity="center_vertical|center_horizontal"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="24sp" />-->
         <!--Button
             android:id="@+id/btnDelete"
             android:layout_width="30dp"
@@ -152,28 +165,30 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtanswer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:hint="type word"
-        android:textColorHint="#1FD847"
-        android:textSize="35sp" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtWord"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/txtanswer"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:hint="type word"-->
+<!--        android:textColorHint="#1FD847"-->
+<!--        android:textSize="35sp" />-->
     <ProgressBar
         android:id="@+id/gbProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignLeft="@+id/linearLayout"
         android:layout_below="@+id/linearLayout"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignRight="@+id/linearLayout"
         android:layout_marginTop="10dp"
-        android:progress="10"
+        android:progress="2"
         android:progressBackgroundTint="#4CAF50"
-        android:progressTint="#C81B2F"/>
+        android:progressTint="#C81B2F" />
+
+
 
 
     <RelativeLayout
@@ -184,6 +199,19 @@
         android:layout_marginTop="37dp"
         >
 
+<!--        <ProgressBar-->
+<!--            android:id="@+id/gbProgressBar"-->
+<!--            style="@android:style/Widget.ProgressBar.Horizontal"-->
+
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:layout_marginRight="0dp"-->
+
+<!--            android:progress="1"-->
+<!--            android:progressBackgroundTint="#FF9800"-->
+<!--            android:progressTint="#C81B2F" />-->
 
         <Button
             android:id="@+id/letterButt2"
