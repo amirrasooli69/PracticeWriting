@@ -61,8 +61,9 @@
         android:layout_height="50dp"
         android:layout_below="@id/txtanswer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:orientation="horizontal">
+
 
 
         <Button
@@ -151,6 +152,16 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txtWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtanswer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="type word"
+        android:textColorHint="#1FD847"
+        android:textSize="35sp" />
     <ProgressBar
         android:id="@+id/gbProgressBar"
         style="?android:attr/progressBarStyleHorizontal"

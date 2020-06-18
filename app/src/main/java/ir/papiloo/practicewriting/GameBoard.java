@@ -35,9 +35,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class GameBoard extends AppCompatActivity implements View.OnClickListener {
 
     /* Views */
-    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5, txtanswer;
+    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5, txtanswer,txtWord;
+
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5;
+    String beforeChar="";
 
     /* Variables */
     Timer gameTimer;
@@ -84,7 +86,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Reset taps count
         tapsCount = -1;
 
-
+        txtWord=findViewById(R.id.txtWord);
         // Get a random word from words string-array
         //lenght=
         getRandomWord();
@@ -523,6 +525,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     void resetWord() {
         // Reset tap Counts
         tapsCount = -1;
+        //txtWord.setText("");
+        beforeChar="";
 
         // reset wordByCharacters
         wordByCharacters = "";
@@ -572,7 +576,21 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         Button lettButt = (Button)findViewById(v.getId());
+//        if(!txtWord.getText().toString().equals("")) {
+//            beforeChar = (String) txtWord.getText();
+//        }
+//        else
+//        {
+            //txtWord.setText(lettButt.getText());
+            beforeChar= beforeChar + lettButt.getText();
+            Log.i("log-", "BeforCharacter: " + beforeChar);
+            txtWord.setText(beforeChar);
+            Log.i("log-", "BeforCharacter: " + beforeChar);
 
+
+        //}
+//        String presButton = (String) lettButt.getText();
+//        txtWord.setText(beforeChar + presButton);
         tapsCount = tapsCount+1;
         // Log.i("log-", "TAPS COUNT: " + tapsCount);
 
