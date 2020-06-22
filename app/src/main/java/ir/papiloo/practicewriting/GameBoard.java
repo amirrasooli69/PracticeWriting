@@ -51,7 +51,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     int tapsCount = 0;
     String firstWord = "";
     String secondWord = "";
-    String thirdWord = "";
     String wordByCharacters = "";
     int randomCircle = 0;
     Button[] letterButtons;
@@ -60,7 +59,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     MarshMallowPermission mmp = new MarshMallowPermission(this);
 
-    int lenght = 5;
+    int lenght = 6;
 
     // ON START() ------------------------------------------------------------------------
     @Override
@@ -418,33 +417,33 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
         } else {
-            Log.i("log-", "SINGLE WORD: " + wordStr);
+            //Log.i("log-", "SINGLE WORD: " + wordStr);
             Configs.stringsArray.add(wordStr);
             w=wordStr;
         }
 
         lenght=w.length();
-        Log.i("log-", "LLLLLLLLLLLenght: " + lenght);
         buildButton(lenght);
         // Get the complete word as a List of characters
         charArray = new ArrayList<String>();
         String[] chArr = w.split("");
 
-        if(lenght==4)
+        wordByCharacters=w;
+        if(lenght == 4)
         {
             for(int i=0; i<5; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght==5)
+        if(lenght == 5)
         {
             for(int i=0; i<6; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght==6)
+        if(lenght == 6)
         {
             for(int i=0; i<7; i++) {
                 String c = chArr[i];
@@ -466,7 +465,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Get a random combination that displays characters on the Game Board
         Random r = new Random();
         int randomCombination = r.nextInt(3);
-        // Log.i("log-", "COMBINATION: " + randomCombination);
+         Log.i("log-", "CCCCCCCOMBINATION: " + randomCombination);
 
         if(lenght==4) {
             switch (randomCombination) {
@@ -527,7 +526,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                         letterButtons[2].setText(charArray.get(3));
                         letterButtons[3].setText(charArray.get(4));
                         letterButtons[5].setText(charArray.get(5));
-
                         break;
 
                     case 1:
@@ -537,7 +535,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                         letterButtons[1].setText(charArray.get(3));
                         letterButtons[2].setText(charArray.get(4));
                         letterButtons[5].setText(charArray.get(5));
-
                         break;
 
                     case 2:
@@ -547,10 +544,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                         letterButtons[3].setText(charArray.get(3));
                         letterButtons[2].setText(charArray.get(4));
                         letterButtons[5].setText(charArray.get(5));
-
                         break;
                 }
+
             }
+
         }
 
 
@@ -567,7 +565,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         beforeChar="";
 
         // reset wordByCharacters
-        wordByCharacters = "";
+        //wordByCharacters = "";
 
         // Reset letter Buttons
         resetLetterButtons();
@@ -637,15 +635,10 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         // You've tapped all buttons, so check your result
-        Log.i("log-", "tapcount: " + tapsCount);
-        Log.i("log-", "Lenght: " + lenght);
 
         if (tapsCount == lenght -1)
         {
-            Log.i("log-", "tapcount: " + tapsCount);
             checkResult();
-
-
         }
 
 
@@ -658,20 +651,19 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     void checkResult() {
 
 
+        Log.i("wordByCharacters","wordByCharacters:" + wordByCharacters);
+        Log.i("TextWord","TxtWord:" + txtWord.getText());
+
         // YOU'VE GUESSED THE WORD!
         firstWord = Configs.stringsArray.get(0);
 
         if (Configs.stringsArray.size() == 2) {
             secondWord = Configs.stringsArray.get(1);
         }
-        if (Configs.stringsArray.size() == 3) {
-            secondWord = Configs.stringsArray.get(1);
-            thirdWord = Configs.stringsArray.get(2);
-        }
 
-        if (wordByCharacters.matches(firstWord) ||
-                wordByCharacters.matches(secondWord) ||
-                wordByCharacters.matches(thirdWord) ) {
+        if (wordByCharacters.matches(txtWord.getText().toString()) ||
+                wordByCharacters.matches(txtWord.getText().toString()))
+        {
 
             // Play a sound
             playSound("rightWord.mp3");
@@ -686,14 +678,14 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             Configs.score = Configs.score + 10;
             scoreTxt.setText(String.valueOf(Configs.score));
 
-
+            wordByCharacters="";
             // Get a new random word
             getRandomWord();
 
 
             // WORD IS WRONG
         } else {
-            wordByCharacters = "";
+            //wordByCharacters = "";
             getRandomChar();
 
             // Play a sound
