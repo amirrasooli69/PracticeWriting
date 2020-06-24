@@ -4,9 +4,12 @@
     <string name="developer_name">توسعه دهنده:گروه نرم افزاری پاپیلو</string>
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
-        <item>پسرها.boys</item>
-        <item>دخترها.girls</item>
-        <item>مداد.pencil</item>
+<!--        <item>پسرها.boys</item>-->
+<!--        <item>دخترها.girls</item>-->
+<!--        <item>مداد.pencil</item>-->
+        <item>دفتر.notebook</item>
+        <item>بلندگو.speaker</item>
+
 
 
     </string-array>
