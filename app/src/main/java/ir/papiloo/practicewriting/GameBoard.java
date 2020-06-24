@@ -145,6 +145,78 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     //create count Button
     protected void buildButton(int lenght)
     {
+        if (lenght == 3) {
+            // Init Views
+            sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView) findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            txtanswer = findViewById(R.id.txtanswer);
+            //-----------------
+            letterButt1 = (Button) findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button) findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button) findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button) findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.INVISIBLE);
+            letterButt5 = (Button) findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.INVISIBLE);
+            letterButt6 = (Button) findViewById(R.id.letterButt6);
+            letterButt6.setTypeface(Configs.juneGull);
+            letterButt6.setOnClickListener(this);
+            letterButt6.setVisibility(View.INVISIBLE);
+            letterButt7 = (Button) findViewById(R.id.letterButt7);
+            letterButt7.setTypeface(Configs.juneGull);
+            letterButt7.setOnClickListener(this);
+            letterButt7.setVisibility(View.INVISIBLE);
+            letterButt8 = (Button) findViewById(R.id.letterButt8);
+            letterButt8.setTypeface(Configs.juneGull);
+            letterButt8.setOnClickListener(this);
+            letterButt8.setVisibility(View.INVISIBLE);
+            letterButt9 = (Button) findViewById(R.id.letterButt9);
+            letterButt9.setTypeface(Configs.juneGull);
+            letterButt9.setOnClickListener(this);
+            letterButt9.setVisibility(View.INVISIBLE);
+            letterButt10 = (Button) findViewById(R.id.letterButt10);
+            letterButt10.setTypeface(Configs.juneGull);
+            letterButt10.setOnClickListener(this);
+            letterButt10.setVisibility(View.INVISIBLE);
+            letterButt11 = (Button) findViewById(R.id.letterButt11);
+            letterButt11.setTypeface(Configs.juneGull);
+            letterButt11.setOnClickListener(this);
+            letterButt11.setVisibility(View.INVISIBLE);
+            letterButt12 = (Button) findViewById(R.id.letterButt12);
+            letterButt12.setTypeface(Configs.juneGull);
+            letterButt12.setOnClickListener(this);
+            letterButt12.setVisibility(View.INVISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[4];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+
+
+            // Make an array of letters on the top
+//            letterTxts = new TextView[5];
+//            letterTxts[0] = letter1;
+//            letterTxts[1] = letter2;
+//            letterTxts[2] = letter3;
+//            letterTxts[3] = letter4;
+//            letterTxts[4] = letter5;
+
+        }
         if (lenght == 4) {
             // Init Views
             sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
@@ -491,7 +563,279 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
 
         }
+        if (lenght == 9) {
+            // Init Views
+            sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView) findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
 
+            txtanswer = findViewById(R.id.txtanswer);
+
+            letterButt1 = (Button) findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button) findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button) findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button) findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button) findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.VISIBLE);
+            letterButt6 = (Button) findViewById(R.id.letterButt6);
+            letterButt6.setTypeface(Configs.juneGull);
+            letterButt6.setOnClickListener(this);
+            letterButt6.setVisibility(View.VISIBLE);
+            letterButt7 = (Button) findViewById(R.id.letterButt7);
+            letterButt7.setTypeface(Configs.juneGull);
+            letterButt7.setOnClickListener(this);
+            letterButt7.setVisibility(View.VISIBLE);
+            letterButt8 = (Button) findViewById(R.id.letterButt8);
+            letterButt8.setTypeface(Configs.juneGull);
+            letterButt8.setOnClickListener(this);
+            letterButt8.setVisibility(View.VISIBLE);
+            letterButt9 = (Button) findViewById(R.id.letterButt9);
+            letterButt9.setTypeface(Configs.juneGull);
+            letterButt9.setOnClickListener(this);
+            letterButt9.setVisibility(View.VISIBLE);
+            letterButt10 = (Button) findViewById(R.id.letterButt10);
+            letterButt10.setTypeface(Configs.juneGull);
+            letterButt10.setOnClickListener(this);
+            letterButt10.setVisibility(View.INVISIBLE);
+            letterButt11 = (Button) findViewById(R.id.letterButt11);
+            letterButt11.setTypeface(Configs.juneGull);
+            letterButt11.setOnClickListener(this);
+            letterButt11.setVisibility(View.INVISIBLE);
+            letterButt12 = (Button) findViewById(R.id.letterButt12);
+            letterButt12.setTypeface(Configs.juneGull);
+            letterButt12.setOnClickListener(this);
+            letterButt12.setVisibility(View.INVISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[9];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
+            letterButtons[5] = letterButt6;
+            letterButtons[6] = letterButt7;
+            letterButtons[7] = letterButt8;
+            letterButtons[8] = letterButt9;
+        }
+        if (lenght == 10) {
+            // Init Views
+            sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView) findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            txtanswer = findViewById(R.id.txtanswer);
+
+            letterButt1 = (Button) findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button) findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button) findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button) findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button) findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.VISIBLE);
+            letterButt6 = (Button) findViewById(R.id.letterButt6);
+            letterButt6.setTypeface(Configs.juneGull);
+            letterButt6.setOnClickListener(this);
+            letterButt6.setVisibility(View.VISIBLE);
+            letterButt7 = (Button) findViewById(R.id.letterButt7);
+            letterButt7.setTypeface(Configs.juneGull);
+            letterButt7.setOnClickListener(this);
+            letterButt7.setVisibility(View.VISIBLE);
+            letterButt8 = (Button) findViewById(R.id.letterButt8);
+            letterButt8.setTypeface(Configs.juneGull);
+            letterButt8.setOnClickListener(this);
+            letterButt8.setVisibility(View.VISIBLE);
+            letterButt9 = (Button) findViewById(R.id.letterButt9);
+            letterButt9.setTypeface(Configs.juneGull);
+            letterButt9.setOnClickListener(this);
+            letterButt9.setVisibility(View.VISIBLE);
+            letterButt10 = (Button) findViewById(R.id.letterButt10);
+            letterButt10.setTypeface(Configs.juneGull);
+            letterButt10.setOnClickListener(this);
+            letterButt10.setVisibility(View.VISIBLE);
+            letterButt11 = (Button) findViewById(R.id.letterButt11);
+            letterButt11.setTypeface(Configs.juneGull);
+            letterButt11.setOnClickListener(this);
+            letterButt11.setVisibility(View.INVISIBLE);
+            letterButt12 = (Button) findViewById(R.id.letterButt12);
+            letterButt12.setTypeface(Configs.juneGull);
+            letterButt12.setOnClickListener(this);
+            letterButt12.setVisibility(View.INVISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[10];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
+            letterButtons[5] = letterButt6;
+            letterButtons[6] = letterButt7;
+            letterButtons[7] = letterButt8;
+            letterButtons[8] = letterButt9;
+            letterButtons[9] = letterButt10;
+        }
+        if (lenght == 11) {
+            // Init Views
+            sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView) findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            txtanswer = findViewById(R.id.txtanswer);
+
+            letterButt1 = (Button) findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button) findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button) findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button) findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button) findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.VISIBLE);
+            letterButt6 = (Button) findViewById(R.id.letterButt6);
+            letterButt6.setTypeface(Configs.juneGull);
+            letterButt6.setOnClickListener(this);
+            letterButt6.setVisibility(View.VISIBLE);
+            letterButt7 = (Button) findViewById(R.id.letterButt7);
+            letterButt7.setTypeface(Configs.juneGull);
+            letterButt7.setOnClickListener(this);
+            letterButt7.setVisibility(View.VISIBLE);
+            letterButt8 = (Button) findViewById(R.id.letterButt8);
+            letterButt8.setTypeface(Configs.juneGull);
+            letterButt8.setOnClickListener(this);
+            letterButt8.setVisibility(View.VISIBLE);
+            letterButt9 = (Button) findViewById(R.id.letterButt9);
+            letterButt9.setTypeface(Configs.juneGull);
+            letterButt9.setOnClickListener(this);
+            letterButt9.setVisibility(View.VISIBLE);
+            letterButt10 = (Button) findViewById(R.id.letterButt10);
+            letterButt10.setTypeface(Configs.juneGull);
+            letterButt10.setOnClickListener(this);
+            letterButt10.setVisibility(View.VISIBLE);
+            letterButt11 = (Button) findViewById(R.id.letterButt11);
+            letterButt11.setTypeface(Configs.juneGull);
+            letterButt11.setOnClickListener(this);
+            letterButt11.setVisibility(View.VISIBLE);
+            letterButt12 = (Button) findViewById(R.id.letterButt12);
+            letterButt12.setTypeface(Configs.juneGull);
+            letterButt12.setOnClickListener(this);
+            letterButt12.setVisibility(View.INVISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[11];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
+            letterButtons[5] = letterButt6;
+            letterButtons[6] = letterButt7;
+            letterButtons[7] = letterButt8;
+            letterButtons[8] = letterButt9;
+            letterButtons[9] = letterButt10;
+            letterButtons[10] = letterButt11;
+
+        }
+        if (lenght == 12) {
+            // Init Views
+            sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
+            scoreTxt = (TextView) findViewById(R.id.gbPointsTxt);
+            scoreTxt.setTypeface(Configs.juneGull);
+
+            txtanswer = findViewById(R.id.txtanswer);
+
+            letterButt1 = (Button) findViewById(R.id.letterButt1);
+            letterButt1.setTypeface(Configs.juneGull);
+            letterButt1.setOnClickListener(this);
+            letterButt2 = (Button) findViewById(R.id.letterButt2);
+            letterButt2.setTypeface(Configs.juneGull);
+            letterButt2.setOnClickListener(this);
+            letterButt3 = (Button) findViewById(R.id.letterButt3);
+            letterButt3.setTypeface(Configs.juneGull);
+            letterButt3.setOnClickListener(this);
+            letterButt4 = (Button) findViewById(R.id.letterButt4);
+            letterButt4.setTypeface(Configs.juneGull);
+            letterButt4.setOnClickListener(this);
+            letterButt5 = (Button) findViewById(R.id.letterButt5);
+            letterButt5.setTypeface(Configs.juneGull);
+            letterButt5.setOnClickListener(this);
+            letterButt5.setVisibility(View.VISIBLE);
+            letterButt6 = (Button) findViewById(R.id.letterButt6);
+            letterButt6.setTypeface(Configs.juneGull);
+            letterButt6.setOnClickListener(this);
+            letterButt6.setVisibility(View.VISIBLE);
+            letterButt7 = (Button) findViewById(R.id.letterButt7);
+            letterButt7.setTypeface(Configs.juneGull);
+            letterButt7.setOnClickListener(this);
+            letterButt7.setVisibility(View.VISIBLE);
+            letterButt8 = (Button) findViewById(R.id.letterButt8);
+            letterButt8.setTypeface(Configs.juneGull);
+            letterButt8.setOnClickListener(this);
+            letterButt8.setVisibility(View.VISIBLE);
+            letterButt9 = (Button) findViewById(R.id.letterButt9);
+            letterButt9.setTypeface(Configs.juneGull);
+            letterButt9.setOnClickListener(this);
+            letterButt9.setVisibility(View.VISIBLE);
+            letterButt10 = (Button) findViewById(R.id.letterButt10);
+            letterButt10.setTypeface(Configs.juneGull);
+            letterButt10.setOnClickListener(this);
+            letterButt10.setVisibility(View.VISIBLE);
+            letterButt11 = (Button) findViewById(R.id.letterButt11);
+            letterButt11.setTypeface(Configs.juneGull);
+            letterButt11.setOnClickListener(this);
+            letterButt11.setVisibility(View.VISIBLE);
+            letterButt12 = (Button) findViewById(R.id.letterButt12);
+            letterButt12.setTypeface(Configs.juneGull);
+            letterButt12.setOnClickListener(this);
+            letterButt12.setVisibility(View.VISIBLE);
+
+            //----------
+            // Make an array of letter buttons
+            letterButtons = new Button[12];
+            letterButtons[0] = letterButt1;
+            letterButtons[1] = letterButt2;
+            letterButtons[2] = letterButt3;
+            letterButtons[3] = letterButt4;
+            letterButtons[4] = letterButt5;
+            letterButtons[5] = letterButt6;
+            letterButtons[6] = letterButt7;
+            letterButtons[7] = letterButt8;
+            letterButtons[8] = letterButt9;
+            letterButtons[9] = letterButt10;
+            letterButtons[10] = letterButt11;
+            letterButtons[11] = letterButt12;
+
+
+        }
     }
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -561,6 +905,13 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         String[] chArr = w.split("");
 
         wordByCharacters=w;
+        if(lenght == 3)
+        {
+            for(int i=0; i<4; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
         if(lenght == 4)
         {
             for(int i=0; i<5; i++) {
@@ -596,6 +947,34 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 charArray.add(c);
             }
         }
+        if(lenght == 9)
+        {
+            for(int i=0; i<10; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
+        if(lenght == 10)
+        {
+            for(int i=0; i<11; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
+        if(lenght == 11)
+        {
+            for(int i=0; i<12; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
+        if(lenght == 12)
+        {
+            for(int i=0; i<13; i++) {
+                String c = chArr[i];
+                charArray.add(c);
+            }
+        }
 
         charArray.remove(0);
         Log.i("log-", "CHARS ARRAY: " + charArray);
@@ -609,6 +988,27 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     void getRandomChar() {
         // Get a random combination that displays characters on the Game Board
 
+        if(lenght==3) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[2].setText(charArray.get(2));
+                    break;
+                case 1:
+                    letterButtons[2].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[1].setText(charArray.get(2));
+                    break;
+                case 2:
+                    letterButtons[0].setText(charArray.get(0));
+                    letterButtons[2].setText(charArray.get(1));
+                    letterButtons[1].setText(charArray.get(2));
+                    break;
+            }
+        }
         if(lenght==4) {
             Random r = new Random();
             int randomCombination = r.nextInt(3);
@@ -769,7 +1169,180 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                     break;
             }
         }
-
+        if(lenght==9) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    letterButtons[5].setText(charArray.get(5));
+                    letterButtons[8].setText(charArray.get(6));
+                    letterButtons[6].setText(charArray.get(7));
+                    letterButtons[7].setText(charArray.get(8));
+                    break;
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[5].setText(charArray.get(3));
+                    letterButtons[7].setText(charArray.get(4));
+                    letterButtons[8].setText(charArray.get(5));
+                    letterButtons[6].setText(charArray.get(6));
+                    letterButtons[2].setText(charArray.get(7));
+                    letterButtons[1].setText(charArray.get(8));
+                    break;
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[6].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[5].setText(charArray.get(4));
+                    letterButtons[2].setText(charArray.get(5));
+                    letterButtons[0].setText(charArray.get(6));
+                    letterButtons[7].setText(charArray.get(7));
+                    letterButtons[8].setText(charArray.get(8));
+                    break;
+            }
+        }
+        if(lenght==10) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    letterButtons[5].setText(charArray.get(5));
+                    letterButtons[8].setText(charArray.get(6));
+                    letterButtons[6].setText(charArray.get(7));
+                    letterButtons[7].setText(charArray.get(8));
+                    letterButtons[9].setText(charArray.get(9));
+                    break;
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[9].setText(charArray.get(3));
+                    letterButtons[7].setText(charArray.get(4));
+                    letterButtons[8].setText(charArray.get(5));
+                    letterButtons[6].setText(charArray.get(6));
+                    letterButtons[2].setText(charArray.get(7));
+                    letterButtons[1].setText(charArray.get(8));
+                    letterButtons[5].setText(charArray.get(9));
+                    break;
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[6].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[5].setText(charArray.get(4));
+                    letterButtons[2].setText(charArray.get(5));
+                    letterButtons[9].setText(charArray.get(6));
+                    letterButtons[7].setText(charArray.get(7));
+                    letterButtons[8].setText(charArray.get(8));
+                    letterButtons[0].setText(charArray.get(9));
+                    break;
+            }
+        }
+        if(lenght==11) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    letterButtons[5].setText(charArray.get(5));
+                    letterButtons[8].setText(charArray.get(6));
+                    letterButtons[6].setText(charArray.get(7));
+                    letterButtons[7].setText(charArray.get(8));
+                    letterButtons[9].setText(charArray.get(9));
+                    letterButtons[10].setText(charArray.get(10));
+                    break;
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[9].setText(charArray.get(3));
+                    letterButtons[7].setText(charArray.get(4));
+                    letterButtons[8].setText(charArray.get(5));
+                    letterButtons[6].setText(charArray.get(6));
+                    letterButtons[10].setText(charArray.get(7));
+                    letterButtons[1].setText(charArray.get(8));
+                    letterButtons[5].setText(charArray.get(9));
+                    letterButtons[2].setText(charArray.get(10));
+                    break;
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[10].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[5].setText(charArray.get(4));
+                    letterButtons[2].setText(charArray.get(5));
+                    letterButtons[9].setText(charArray.get(6));
+                    letterButtons[7].setText(charArray.get(7));
+                    letterButtons[8].setText(charArray.get(8));
+                    letterButtons[0].setText(charArray.get(9));
+                    letterButtons[6].setText(charArray.get(10));
+                    break;
+            }
+        }
+        if(lenght==12) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    letterButtons[5].setText(charArray.get(5));
+                    letterButtons[8].setText(charArray.get(6));
+                    letterButtons[6].setText(charArray.get(7));
+                    letterButtons[7].setText(charArray.get(8));
+                    letterButtons[9].setText(charArray.get(9));
+                    letterButtons[10].setText(charArray.get(10));
+                    letterButtons[11].setText(charArray.get(11));
+                    break;
+                case 1:
+                    letterButtons[11].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[9].setText(charArray.get(3));
+                    letterButtons[7].setText(charArray.get(4));
+                    letterButtons[8].setText(charArray.get(5));
+                    letterButtons[6].setText(charArray.get(6));
+                    letterButtons[10].setText(charArray.get(7));
+                    letterButtons[1].setText(charArray.get(8));
+                    letterButtons[5].setText(charArray.get(9));
+                    letterButtons[2].setText(charArray.get(10));
+                    letterButtons[3].setText(charArray.get(11));
+                    break;
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[10].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[5].setText(charArray.get(4));
+                    letterButtons[2].setText(charArray.get(5));
+                    letterButtons[11].setText(charArray.get(6));
+                    letterButtons[7].setText(charArray.get(7));
+                    letterButtons[8].setText(charArray.get(8));
+                    letterButtons[0].setText(charArray.get(9));
+                    letterButtons[6].setText(charArray.get(10));
+                    letterButtons[9].setText(charArray.get(11));
+                    break;
+            }
+        }
         // Call reset Word function
         resetWord();
     }

@@ -4,14 +4,16 @@
     <string name="developer_name">توسعه دهنده:گروه نرم افزاری پاپیلو</string>
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
-<!--        <item>پسرها.boys</item>-->
-<!--        <item>دخترها.girls</item>-->
-<!--        <item>مداد.pencil</item>-->
-        <item>دفتر.notebook</item>
+        <item>کلید.key</item>
+        <item>پسرها.boys</item>
+        <item>دخترها.girls</item>
+        <item>مداد.pencil</item>
         <item>بلندگو.speaker</item>
-
-
-
+        <item>دفتر.notebook</item>
+        <item>رئیس‌جمهور.president</item>
+        <item>رستوران.restaurant</item>
+        <item>مادربزرگ.grandmother</item>
+        <item>حروف انگلیسی.abcdefghigkl</item>
     </string-array>
 
     <string name="bestHome">بهترین رکورد</string>
