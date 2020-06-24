@@ -200,12 +200,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
             //----------
             // Make an array of letter buttons
-            letterButtons = new Button[5];
+            letterButtons = new Button[4];
             letterButtons[0] = letterButt1;
             letterButtons[1] = letterButt2;
             letterButtons[2] = letterButt3;
             letterButtons[3] = letterButt4;
-            letterButtons[4] = letterButt5;
 
 
             // Make an array of letters on the top
@@ -461,13 +460,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     // MARK: - GET RANDOM CHARACTERS --------------------------------------------------------
     void getRandomChar() {
-
         // Get a random combination that displays characters on the Game Board
-        Random r = new Random();
-        int randomCombination = r.nextInt(3);
-         Log.i("log-", "CCCCCCCOMBINATION: " + randomCombination);
 
         if(lenght==4) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
             switch (randomCombination) {
                 case 0:
                     letterButtons[1].setText(charArray.get(0));
@@ -475,14 +472,12 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                     letterButtons[3].setText(charArray.get(2));
                     letterButtons[2].setText(charArray.get(3));
                     break;
-
                 case 1:
                     letterButtons[3].setText(charArray.get(0));
                     letterButtons[0].setText(charArray.get(1));
                     letterButtons[2].setText(charArray.get(2));
                     letterButtons[1].setText(charArray.get(3));
                     break;
-
                 case 2:
                     letterButtons[2].setText(charArray.get(0));
                     letterButtons[1].setText(charArray.get(1));
@@ -490,71 +485,71 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                     letterButtons[3].setText(charArray.get(3));
                     break;
             }
-            if(lenght==5) {
-                switch (randomCombination) {
-                    case 0:
-                        letterButtons[1].setText(charArray.get(0));
-                        letterButtons[0].setText(charArray.get(1));
-                        letterButtons[4].setText(charArray.get(2));
-                        letterButtons[2].setText(charArray.get(3));
-                        letterButtons[3].setText(charArray.get(4));
-                        break;
-
-                    case 1:
-                        letterButtons[3].setText(charArray.get(0));
-                        letterButtons[0].setText(charArray.get(1));
-                        letterButtons[4].setText(charArray.get(2));
-                        letterButtons[1].setText(charArray.get(3));
-                        letterButtons[2].setText(charArray.get(4));
-                        break;
-
-                    case 2:
-                        letterButtons[4].setText(charArray.get(0));
-                        letterButtons[1].setText(charArray.get(1));
-                        letterButtons[0].setText(charArray.get(2));
-                        letterButtons[3].setText(charArray.get(3));
-                        letterButtons[2].setText(charArray.get(4));
-                        break;
-                }
-            }
-            if(lenght==6) {
-                switch (randomCombination) {
-                    case 0:
-                        letterButtons[1].setText(charArray.get(0));
-                        letterButtons[0].setText(charArray.get(1));
-                        letterButtons[4].setText(charArray.get(2));
-                        letterButtons[2].setText(charArray.get(3));
-                        letterButtons[3].setText(charArray.get(4));
-                        letterButtons[5].setText(charArray.get(5));
-                        break;
-
-                    case 1:
-                        letterButtons[3].setText(charArray.get(0));
-                        letterButtons[0].setText(charArray.get(1));
-                        letterButtons[4].setText(charArray.get(2));
-                        letterButtons[1].setText(charArray.get(3));
-                        letterButtons[2].setText(charArray.get(4));
-                        letterButtons[5].setText(charArray.get(5));
-                        break;
-
-                    case 2:
-                        letterButtons[4].setText(charArray.get(0));
-                        letterButtons[1].setText(charArray.get(1));
-                        letterButtons[0].setText(charArray.get(2));
-                        letterButtons[3].setText(charArray.get(3));
-                        letterButtons[2].setText(charArray.get(4));
-                        letterButtons[5].setText(charArray.get(5));
-                        break;
-                }
-
-            }
 
         }
+        if(lenght==5) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
 
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    break;
+                case 1:
+
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[1].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(4));
+                    break;
+                case 2:
+
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[2].setText(charArray.get(1));
+                    letterButtons[0].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[1].setText(charArray.get(4));
+                    break;
+            }
+        }
+        if(lenght==6) {
+            Random r = new Random();
+            int randomCombination = r.nextInt(3);
+            switch (randomCombination) {
+                case 0:
+                    letterButtons[1].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[2].setText(charArray.get(3));
+                    letterButtons[3].setText(charArray.get(4));
+                    letterButtons[5].setText(charArray.get(5));
+                    break;
+                case 1:
+                    letterButtons[3].setText(charArray.get(0));
+                    letterButtons[0].setText(charArray.get(1));
+                    letterButtons[4].setText(charArray.get(2));
+                    letterButtons[5].setText(charArray.get(3));
+                    letterButtons[2].setText(charArray.get(4));
+                    letterButtons[1].setText(charArray.get(5));
+                    break;
+                case 2:
+                    letterButtons[4].setText(charArray.get(0));
+                    letterButtons[1].setText(charArray.get(1));
+                    letterButtons[0].setText(charArray.get(2));
+                    letterButtons[3].setText(charArray.get(3));
+                    letterButtons[5].setText(charArray.get(4));
+                    letterButtons[2].setText(charArray.get(5));
+                    break;
+            }
+        }
 
         // Call reset Word function
         resetWord();
-
     }
 
     // MARK: - RESET WORDS BUTTONS --------------------------------------------------------
@@ -576,9 +571,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     // MARK: - START GAME TIMER ---------------------------------------------------------------
     void startGameTimer() {
-
         float delay = 10*Configs.roundTime;
-
         gameTimer =  new Timer();
         gameTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -615,8 +608,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             beforeChar= beforeChar + lettButt.getText();
             txtWord.setText(beforeChar);
 
-
-
         tapsCount = tapsCount+1;
         // Log.i("log-", "TAPS COUNT: " + tapsCount);
 
@@ -633,24 +624,18 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         //wordByCharacters = wordByCharacters + letterTxts[tapsCount].getText().toString();
         //Log.i("log-", "WORD BY CHARS: " + wordByCharacters);
 
-
         // You've tapped all buttons, so check your result
 
         if (tapsCount == lenght -1)
         {
             checkResult();
         }
-
-
         // Play a sound
         playSound("buttTapped.mp3");
-
     }
 
     // MARK: - CHECK RESULT ------------------------------------------------------------
     void checkResult() {
-
-
         Log.i("wordByCharacters","wordByCharacters:" + wordByCharacters);
         Log.i("TextWord","TxtWord:" + txtWord.getText());
 
@@ -668,11 +653,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             // Play a sound
             playSound("rightWord.mp3");
 
-
             // Update game timer
             progress = progress - Configs.bonusProgress;
             updateTimer();
-
 
             // Update Score
             Configs.score = Configs.score + 10;
@@ -681,7 +664,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             wordByCharacters="";
             // Get a new random word
             getRandomWord();
-
 
             // WORD IS WRONG
         } else {
