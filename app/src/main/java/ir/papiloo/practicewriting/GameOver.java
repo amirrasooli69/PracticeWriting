@@ -60,7 +60,7 @@ public class GameOver extends AppCompatActivity {
 
 
         // Get the word you could have made
-        possibleWordTxt.setText(Configs.stringsArray.get(0));
+        possibleWordTxt.setText(Configs.stringsArray.get(1));
 
 
 
