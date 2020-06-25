@@ -58,41 +58,35 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
         android:layout_below="@id/txtanswer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
 
-
         <Button
             android:id="@+id/btnDelete"
-            android:layout_width="30dp"
+            android:layout_width="38dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="7dp"
-            android:background="@drawable/circle_corner_red"
-
+            android:background="@drawable/refresh"
             android:gravity="center_vertical|center_horizontal"
-            android:text=">"
-            android:textAllCaps="false"
-            android:textColor="@android:color/background_dark"
-            android:textSize="25sp"
-            />
+            android:textAllCaps="false" />
 
         <TextView
             android:id="@+id/txtWord"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/txtanswer"
-            android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="0dp"
             android:hint="type word"
             android:textColor="#03A9F4"
             android:textColorHint="#1FD847"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:layout_marginStart="5dp"
+            android:gravity="center"/>
 
         <!--        <TextView-->
 <!--            android:id="@+id/letter1"-->
@@ -196,74 +190,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout"
-        android:layout_marginTop="37dp"
-        >
-
-<!--        <ProgressBar-->
-<!--            android:id="@+id/gbProgressBar"-->
-<!--            style="@android:style/Widget.ProgressBar.Horizontal"-->
-
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginTop="50dp"-->
-<!--            android:layout_marginRight="0dp"-->
-
-<!--            android:progress="1"-->
-<!--            android:progressBackgroundTint="#FF9800"-->
-<!--            android:progressTint="#C81B2F" />-->
-
-        <Button
-            android:id="@+id/letterButt2"
+        android:layout_marginTop="37dp">
+        <Button android:id="@+id/letterButt1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_below="@+id/gbProgressBar"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
-            android:layout_toStartOf="@+id/letterButt1"
-            android:background="@drawable/circle_corner_blue"
-            android:text="B"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            android:layout_marginRight="20dp"
-            android:layout_toLeftOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
-            tools:ignore="NotSibling" />
-
-        <Button
-            android:id="@+id/letterButt1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/gbProgressBar"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/letterButt2"
             android:background="@drawable/circle_corner_blue"
             android:text="A"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/letterButt1"
             tools:ignore="NotSibling" />
-
-        <Button
-            android:id="@+id/letterButt3"
+        <Button android:id="@+id/letterButt2"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/gbProgressBar"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circle_corner_blue"
+            android:text="B"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            tools:ignore="NotSibling" />
+        <Button android:id="@+id/letterButt3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/gbProgressBar"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@+id/letterButt2"
             android:background="@drawable/circle_corner_blue"
             android:text="C"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/letterButt5"
+            android:textSize="30sp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/letterButt1"
+            tools:ignore="NotSibling" />
+        <Button android:id="@+id/letterButt4"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt3"
+            android:layout_below="@+id/letterButt1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/letterButt5"
+            android:background="@drawable/circle_corner_blue"
+            android:text="D"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/letterButt1"
+            tools:ignore="NotSibling" />
+        <Button android:id="@+id/letterButt5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/letterButt1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/circle_corner_blue"
@@ -271,120 +259,81 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/letterButt4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/gbProgressBar"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/letterButt1"
-            android:background="@drawable/circle_corner_blue"
-            android:text="D"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
-            tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt6"
+        <Button android:id="@+id/letterButt6"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_below="@+id/letterButt1"
-            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/letterButt1"
+            android:layout_toStartOf="@+id/letterButt5"
             android:background="@drawable/circle_corner_blue"
             android:text="F"
-            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/letterButt3"
             tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt7"
+        <Button android:id="@+id/letterButt7"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt1"
-            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/letterButt4"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_toStartOf="@+id/letterButt1"
+            android:layout_toEndOf="@+id/letterButt2"
             android:background="@drawable/circle_corner_blue"
             android:text="G"
-            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:layout_marginRight="20dp"
-            android:layout_toLeftOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/letterButt8"
             tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt8"
+        <Button android:id="@+id/letterButt8"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt3"
-            android:layout_marginEnd="20dp"
+            android:layout_below="@+id/letterButt6"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_toStartOf="@+id/letterButt1"
             android:background="@drawable/circle_corner_blue"
             android:text="H"
-            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+        <Button android:id="@+id/letterButt9"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/letterButt6"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toStartOf="@+id/letterButt8"
+            android:background="@drawable/circle_corner_blue"
+            android:text="I"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
             tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt9"
+        <Button android:id="@+id/letterButt10"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt3"
+            android:layout_below="@+id/letterButt7"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/letterButt1"
-            android:background="@drawable/circle_corner_blue"
-            android:text="I"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="30sp"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
-            tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt10"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/letterButt5"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/letterButt1"
+            android:layout_toEndOf="@+id/letterButt11"
             android:background="@drawable/circle_corner_blue"
             android:text="J"
-            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
             tools:ignore="NotSibling" />
-        <Button
-            android:id="@+id/letterButt11"
+        <Button android:id="@+id/letterButt11"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt5"
+            android:layout_below="@+id/letterButt8"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/circle_corner_blue"
@@ -392,26 +341,21 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp" />
-        <Button
-            android:id="@+id/letterButt12"
+        <Button android:id="@+id/letterButt12"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_below="@+id/letterButt5"
+            android:layout_below="@+id/letterButt8"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
-            android:layout_toStartOf="@+id/letterButt1"
+            android:layout_toStartOf="@+id/letterButt11"
             android:background="@drawable/circle_corner_blue"
             android:text="L"
-            android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="30sp"
             android:layout_marginRight="20dp"
             android:layout_toLeftOf="@+id/letterButt1"
-            android:gravity="center_horizontal"
             tools:ignore="NotSibling" />
-
-
     </RelativeLayout>
 
 

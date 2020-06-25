@@ -67,21 +67,18 @@ public class Home extends AppCompatActivity {
 
         }
         //test send to site
-        Button btntest=(Button) findViewById(R.id.testSite);
-        btntest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Home.this, SendWord.class));
-
-            }
-        });
+//        Button btntest=(Button) findViewById(R.id.testSite);
+//        btntest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Home.this, SendWord.class));
+//
+//            }
+//        });
         // Init views
         bestTxt = (TextView)findViewById(R.id.hBestTxt);
         bestTxt.setTypeface(Configs.juneGull);
-        //RadioButtom
-        radChar3 =(RadioButton) findViewById(R.id.char3);
-        radChar4 = (RadioButton) findViewById(R.id.char4);
-        radChar5 = findViewById(R.id.char5);
+
         //BottonNavigation
         bottomNav=findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

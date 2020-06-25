@@ -156,12 +156,15 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
@@ -201,20 +204,10 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
             //----------
             // Make an array of letter buttons
-            letterButtons = new Button[4];
+            letterButtons = new Button[3];
             letterButtons[0] = letterButt1;
             letterButtons[1] = letterButt2;
             letterButtons[2] = letterButt3;
-            letterButtons[3] = letterButt4;
-
-
-            // Make an array of letters on the top
-//            letterTxts = new TextView[5];
-//            letterTxts[0] = letter1;
-//            letterTxts[1] = letter2;
-//            letterTxts[2] = letter3;
-//            letterTxts[3] = letter4;
-//            letterTxts[4] = letter5;
 
         }
         if (lenght == 4) {
@@ -228,15 +221,19 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -299,15 +296,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -350,14 +355,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButtons[3] = letterButt4;
             letterButtons[4] = letterButt5;
 
-
-            // Make an array of letters on the top
-//            letterTxts = new TextView[5];
-//            letterTxts[0] = letter1;
-//            letterTxts[1] = letter2;
-//            letterTxts[2] = letter3;
-//            letterTxts[3] = letter4;
-//            letterTxts[4] = letter5;
         }
         if (lenght == 6) {
             // Init Views
@@ -370,15 +367,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -422,14 +427,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButtons[4] = letterButt5;
             letterButtons[5] = letterButt6;
 
-
-            // Make an array of letters on the top
-//            letterTxts = new TextView[5];
-//            letterTxts[0] = letter1;
-//            letterTxts[1] = letter2;
-//            letterTxts[2] = letter3;
-//            letterTxts[3] = letter4;
-//            letterTxts[4] = letter5;
         }
         if (lenght == 7) {
             // Init Views
@@ -442,15 +439,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -507,15 +512,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -574,15 +587,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -640,19 +661,28 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
             letterButt5.setVisibility(View.VISIBLE);
+
             letterButt6 = (Button) findViewById(R.id.letterButt6);
             letterButt6.setTypeface(Configs.juneGull);
             letterButt6.setOnClickListener(this);
@@ -707,15 +737,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);
@@ -776,15 +814,23 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             letterButt1 = (Button) findViewById(R.id.letterButt1);
             letterButt1.setTypeface(Configs.juneGull);
             letterButt1.setOnClickListener(this);
+            letterButt1.setVisibility(View.VISIBLE);
+
             letterButt2 = (Button) findViewById(R.id.letterButt2);
             letterButt2.setTypeface(Configs.juneGull);
             letterButt2.setOnClickListener(this);
+            letterButt2.setVisibility(View.VISIBLE);
+
             letterButt3 = (Button) findViewById(R.id.letterButt3);
             letterButt3.setTypeface(Configs.juneGull);
             letterButt3.setOnClickListener(this);
+            letterButt3.setVisibility(View.VISIBLE);
+
             letterButt4 = (Button) findViewById(R.id.letterButt4);
             letterButt4.setTypeface(Configs.juneGull);
             letterButt4.setOnClickListener(this);
+            letterButt4.setVisibility(View.VISIBLE);
+
             letterButt5 = (Button) findViewById(R.id.letterButt5);
             letterButt5.setTypeface(Configs.juneGull);
             letterButt5.setOnClickListener(this);

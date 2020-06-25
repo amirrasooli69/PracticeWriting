@@ -1,6 +1,6 @@
 <resources>
     <!-- IMPORTANT: REPLACE THE STRING BELOW WITH THE NEW NAME YOU'LL  GIVE TO THIS APP -->
-    <string name="app_name">حدس کلمه پاپیلو</string>
+    <string name="app_name">Practice Writing</string>
     <string name="developer_name">توسعه دهنده:گروه نرم افزاری پاپیلو</string>
     <!-- ARRAY OF FARSI WORDS -->
     <string-array name="english">
