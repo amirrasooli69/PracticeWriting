@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +29,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.jar.Attributes;
 import java.util.regex.Pattern;
 
 import ir.papiloo.practicewriting.R;
@@ -56,6 +60,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     Button[] letterButtons;
     TextView[] letterTxts;
     MediaPlayer mp;
+    Cursor Cursor;
 
     MarshMallowPermission mmp = new MarshMallowPermission(this);
 
@@ -109,13 +114,38 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         // Get a List array of words
 
-        String[] wordsArr = getResources().getStringArray(R.array.english);
-        wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
+//        String[] wordsArr = getResources().getStringArray(R.array.english);
+//        wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
+//        Log.i("list wordsArray: ", String.valueOf(wordsArray));
+//        Log.i("list size: ", String.valueOf(wordsArray.size()));
 
 
+        ArrayList<String> mylist = new ArrayList<String>();
+        String DATABASE_NAME = "EnglishWords.sqlite";
+        String TABLE_NAME = "practice";
+        try{
+            SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
+            Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
+            if(allrows.moveToFirst()){
+                do{
+                    String ID = allrows.getString(0);
+                    String word = allrows.getString(1);
+                    String mean = allrows.getString(2);
+
+
+                    mylist.add(word+"."+mean);
+
+                    // Show values with Toast
+//                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
+                }
+                while(allrows.moveToNext());
+                wordsArray=mylist;
+            }
+            mydb.close();
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+        }
         buildButton(lenght);
-
-
         // MARK: - RESET BUTTON ------------------------------------
         Button resetButt = (Button) findViewById(R.id.btnDelete);
         resetButt.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +158,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-
         // MARK: - BACK BUTTON ------------------------------------
         Button backButt = (Button) findViewById(R.id.gbBackButt);
         backButt.setOnClickListener(new View.OnClickListener() {
@@ -138,7 +167,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-
 
     }// end onCreate()
 
@@ -909,7 +937,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 //        }
 //    }
 
+
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
+
     int getRandomWord() {
 
         // Get a random circle for letters
@@ -920,6 +950,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         // Get a random word from the string-arrays
         String randomWord = wordsArray.get(new Random().nextInt(wordsArray.size()));
+//        String randomWord = mylist.get(new Random().nextInt(mylist.size()));
+
         wordStr = randomWord;
         Log.i("log-", "RANDOM WORD: " + wordStr);
 
@@ -932,9 +964,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             String[] one = wordStr.split(Pattern.quote("."));
             for (String word : one) {
                 Configs.stringsArray.add(word);
-                w=one[1];
+                w=one[0];
                 //lenght=w.length();
-                txtanswer.setText(one[0]);
+                txtanswer.setText(one[1]);
             }
             Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 

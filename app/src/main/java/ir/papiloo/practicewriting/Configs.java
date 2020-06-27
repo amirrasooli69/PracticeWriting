@@ -18,12 +18,8 @@ public class Configs extends Application {
     // SET THE MAXIMUM TIME OF A ROUND
     public static float roundTime = 45 ;
 
-
-
     // SET THE PROGRESS THAT WILL BE TAKEN OFF FROM THE CURRENT PROGRESS EACH TIME YOU GUESS A WORD (NOTE: it must never be equal or more than 100, otherwise it'll reset the progressBar)
     public static int bonusProgress = 5;
-
-
 
     // Set fonts
     public static Typeface juneGull;
@@ -70,6 +66,8 @@ public class Configs extends Application {
     public static int bestScore;
     public static int score;
     public static List<String> stringsArray;
+    public static List<String> wordsArray;
+
 
 
 

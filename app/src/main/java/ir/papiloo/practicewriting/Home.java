@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -42,13 +43,13 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class Home extends AppCompatActivity {
-    private SQLiteDatabase sqliteDB = null;
     ReadSite.myDatabaseHelper mydb;
     TextView bestTxt;
     ListView mList;
     ArrayList<Item> arrayItem;
     BottomNavigationView bottomNav;
     Button play;
+    Cursor cursor ;
 
     /* Variables */
     SharedPreferences prefs;
@@ -84,16 +85,18 @@ public class Home extends AppCompatActivity {
 
         if (!new File("/data/data/" + this.getPackageName() + "/databases/EnglishWords.sqlite").exists()) {
             mydb = new ReadSite.myDatabaseHelper(this);
-            boolean a = mydb.insertData(1, "ونگون", "بادمجان");
-            boolean b = mydb.insertData(2, "ونگون", "بادمجان");
-            boolean c = mydb.insertData(3, "ونگون", "بادمجان");
-
-
+            boolean a = mydb.insertData(1, "boy", "پسر");
+            boolean b = mydb.insertData(2, "book", "کتاب");
+            boolean c = mydb.insertData(3, "noteBook", "دفتر");
 
         }
-        sqliteDB= SQLiteDatabase.openOrCreateDatabase(
-                "/data/data/" + this.getPackageName() + "/databases/EnglishWords.sqlite",
-                null);
+        String DATABASE_NAME = "EnglishWords.sqlite";
+        String TABLE_NAME = "practice";
+        SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
+        Cursor cursor  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
+
+
+
         //test send to site
 //        Button btntest=(Button) findViewById(R.id.testSite);
 //        btntest.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +134,6 @@ public class Home extends AppCompatActivity {
                 return false;
             }
         });
-
 
         // Get Best Score
         prefs = PreferenceManager.getDefaultSharedPreferences(Home.this);
@@ -171,6 +173,8 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
         arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
+
+
     }
 
 
