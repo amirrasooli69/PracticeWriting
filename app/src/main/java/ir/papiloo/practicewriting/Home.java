@@ -90,23 +90,20 @@ public class Home extends AppCompatActivity {
         if (!new File("/data/data/" + this.getPackageName() + "/databases/EnglishWords.sqlite").exists()) {
             mydb = new ReadSite.myDatabaseHelper(this);
             boolean a = mydb.insertData(1, "boy", "پسر");
-            boolean b = mydb.insertData(2, "book", "کتاب");
-            boolean c = mydb.insertData(3, "noteBook", "دفتر");
-
         }
 
 
 
 
         //test send to site
-//        Button btntest=(Button) findViewById(R.id.testSite);
-//        btntest.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(Home.this, SendWord.class));
-//
-//            }
-//        });
+        Button btntest=(Button) findViewById(R.id.addword);
+        btntest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Home.this, ReadSite.class));
+
+            }
+        });
         // Init views
         bestTxt = (TextView)findViewById(R.id.hBestTxt);
         bestTxt.setTypeface(Configs.juneGull);

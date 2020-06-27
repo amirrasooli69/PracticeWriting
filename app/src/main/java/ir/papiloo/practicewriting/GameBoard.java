@@ -132,10 +132,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                     String ID = allrows.getString(0);
                     String word = allrows.getString(1);
                     String mean = allrows.getString(2);
-
-
                     mylist.add(word+"."+mean);
-
                     // Show values with Toast
 //                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
                 }

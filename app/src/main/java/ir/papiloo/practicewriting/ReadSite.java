@@ -47,7 +47,7 @@ import ir.papiloo.practicewriting.R;
 public class ReadSite extends AppCompatActivity {
 
     myDatabaseHelper mydb;
-    Button btnSemnani,btnHome;
+    Button book504,btnHome;
     RequestQueue requestQueue;
     ProgressDialog pDialog;
     ImageView imageView;
@@ -67,8 +67,8 @@ public class ReadSite extends AppCompatActivity {
         pDialog.setCancelable(true);
 
 
-        btnSemnani=findViewById(R.id.btnSemnani);
-        btnSemnani.setOnClickListener(new View.OnClickListener() {
+        book504=findViewById(R.id.book504);
+        book504.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getJson();
@@ -203,7 +203,7 @@ public class ReadSite extends AppCompatActivity {
 
     private void getJson() {
             //pb.setVisibility(View.VISIBLE);
-         String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/Dictionary/returnJson.php";
+         String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/returnJson.php";
                 URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
 
         final StringRequest request = new StringRequest(
@@ -217,7 +217,7 @@ public class ReadSite extends AppCompatActivity {
                         pDialog.dismiss();
                         new AlertDialog.Builder(ReadSite.this)
                                 .setTitle("پاسخ ")
-                                .setMessage("کلمات جدید دریافت شد")
+                                .setMessage("کلمات کتاب 504 اضافه شد")
                                 .setPositiveButton("بستن", null)
                                 .show();
                     }
