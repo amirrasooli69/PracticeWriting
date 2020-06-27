@@ -133,10 +133,8 @@ public class ReadSite extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("Language", "دیب اجی");
-                params.put("Word", "چا  ور");
-                params.put("Mean", "چاد  ر");
-                params.put("Pronounce", "چاوَ  ر");
+                params.put("Word","boy");
+                params.put("Mean", "پسر");
                 return params;
             }
         };
@@ -149,7 +147,7 @@ public class ReadSite extends AppCompatActivity {
                         final String mean, final String pro, final String sound) {
         mydb = new myDatabaseHelper(this);
 
-                boolean a = mydb.insertData(id,lan, word,mean,pro,sound);
+                boolean a = mydb.insertData(id, word,mean);
 //                if (a)
 //                    mes = "اطلاعات ذخیره شد";
 //                else
@@ -374,17 +372,15 @@ public class ReadSite extends AppCompatActivity {
             //onCreate(db);
         }
 
-        public boolean insertData(Integer Id, String lan, String word, String mean, String pro, String sound)
+        public boolean insertData(Integer Id, String word, String mean)
         {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
             cv.put("Id",Id);
-            cv.put("language",lan);
             cv.put("word",word);
             cv.put("mean",mean);
-            cv.put("pronounce",pro);
-            cv.put("sound",pro);
+
 
             long result=db.insert(TBL_NAME,null,cv);
 

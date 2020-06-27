@@ -1,5 +1,6 @@
 package ir.papiloo.practicewriting;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -47,6 +48,7 @@ public class Home extends AppCompatActivity {
     /* Variables */
     SharedPreferences prefs;
     MarshMallowPermission mmp = new MarshMallowPermission(this);
+    @SuppressLint("SdCardPath")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
@@ -61,9 +63,7 @@ public class Home extends AppCompatActivity {
         if (!new File("/data/data/" + this.getPackageName()
                 + "/databases/word.sqlite").exists()) {
             mydb = new ReadSite.myDatabaseHelper(this);
-            boolean a = mydb.insertData(1, "سمنانی", "ونگون",
-                    "بادمجان",
-                    "وِنگون","");
+            boolean a = mydb.insertData(1, "ونگون", "بادمجان");
 
         }
         //test send to site
