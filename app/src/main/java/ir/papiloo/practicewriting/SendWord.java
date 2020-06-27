@@ -20,7 +20,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 
 public class SendWord extends AppCompatActivity {
 

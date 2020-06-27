@@ -6,7 +6,7 @@ import android.graphics.Typeface;
 
 import java.util.List;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

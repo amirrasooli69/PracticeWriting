@@ -13,7 +13,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 
 public class CustomAdapter extends BaseAdapter {
     private Context mContext;

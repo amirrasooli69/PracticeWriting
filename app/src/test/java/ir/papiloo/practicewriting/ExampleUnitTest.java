@@ -1,4 +1,4 @@
-package ir.papiloo.words;
+package ir.papiloo.practicewriting;
 
 import org.junit.Test;
 

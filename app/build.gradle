@@ -13,7 +13,7 @@ android {
     buildToolsVersion '29.0.3'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "ir.papiloo.words"
+        applicationId "ir.papiloo.practicewriting"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

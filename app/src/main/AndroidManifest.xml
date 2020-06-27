@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="ir.papiloo.words">
+    package="ir.papiloo.practicewriting">
     <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:name="ir.papiloo.practicewriting.Configs"
@@ -33,8 +34,10 @@
         <activity android:name="ir.papiloo.practicewriting.GameBoard" />
         <activity android:name="ir.papiloo.practicewriting.GameOver" />
         <activity android:name="ir.papiloo.practicewriting.About" />
-        <activity android:name="ir.papiloo.practicewriting.CustomAdapter" />
-        <activity android:name="ir.papiloo.practicewriting.Item" />
+        <activity android:name="ir.papiloo.practicewriting.CustomAdapter"
+            tools:ignore="Instantiatable" />
+        <activity android:name="ir.papiloo.practicewriting.Item"
+            tools:ignore="Instantiatable" />
         <activity android:name="ir.papiloo.practicewriting.SendWord"/>
         <activity android:name="ir.papiloo.practicewriting.ReadSite"/>
 

@@ -1,5 +1,6 @@
 package ir.papiloo.practicewriting;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -7,8 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.os.Bundle;
@@ -24,6 +28,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -31,17 +37,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class Home extends AppCompatActivity {
-
+    private SQLiteDatabase sqliteDB = null;
     ReadSite.myDatabaseHelper mydb;
     TextView bestTxt;
     ListView mList;
     ArrayList<Item> arrayItem;
-    RadioButton radChar3,radChar4,radChar5;
     BottomNavigationView bottomNav;
     Button play;
 
@@ -54,18 +59,41 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                androidx.appcompat.app.AlertDialog.Builder dialog = new androidx.appcompat.app.AlertDialog.Builder(this);
+                dialog.setCancelable(false);
+                dialog.setTitle("دسترسی");
+                dialog.setMessage(R.string.storage_permission);
+                dialog.setNegativeButton("تایید", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityCompat.requestPermissions(Home.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    }
+                });
+                dialog.show();
+
+            }
+        }
+
         // Hide ActionBar
         getSupportActionBar().hide();
 
         // Hide Status bar
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        if (!new File("/data/data/" + this.getPackageName()
-                + "/databases/word.sqlite").exists()) {
+        if (!new File("/data/data/" + this.getPackageName() + "/databases/EnglishWords.sqlite").exists()) {
             mydb = new ReadSite.myDatabaseHelper(this);
             boolean a = mydb.insertData(1, "ونگون", "بادمجان");
+            boolean b = mydb.insertData(2, "ونگون", "بادمجان");
+            boolean c = mydb.insertData(3, "ونگون", "بادمجان");
+
+
 
         }
+        sqliteDB= SQLiteDatabase.openOrCreateDatabase(
+                "/data/data/" + this.getPackageName() + "/databases/EnglishWords.sqlite",
+                null);
         //test send to site
 //        Button btntest=(Button) findViewById(R.id.testSite);
 //        btntest.setOnClickListener(new View.OnClickListener() {

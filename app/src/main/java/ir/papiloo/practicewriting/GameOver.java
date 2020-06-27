@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class GameOver extends AppCompatActivity {

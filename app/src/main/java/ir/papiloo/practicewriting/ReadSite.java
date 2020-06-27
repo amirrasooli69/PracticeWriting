@@ -42,7 +42,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 
 public class ReadSite extends AppCompatActivity {
 
@@ -143,8 +143,8 @@ public class ReadSite extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    private void SaveDB(final Integer id, final String lan, final String word,
-                        final String mean, final String pro, final String sound) {
+    private void SaveDB(final Integer id, final String word,
+                        final String mean) {
         mydb = new myDatabaseHelper(this);
 
                 boolean a = mydb.insertData(id, word,mean);
@@ -282,18 +282,14 @@ public class ReadSite extends AppCompatActivity {
                     //Flower flower= new Flower();
                     Integer id=jsonObject.getInt("id");
                     //flower.setId(jsonObject.getInt("Id"));
-                    String lan= jsonObject.getString("language");
-                    //flower.setLanguage(jsonObject.getString("Language"));
                     String word=jsonObject.getString("word");
                     //flower.setWord(jsonObject.getString("Word"));
                     String mean = jsonObject.getString("mean");
                     //flower.setMean(jsonObject.getString("Mean"));
-                    String pro=jsonObject.getString("pronounce");
-                    //flower.setPronounce(jsonObject.getString("Pronounce"));
-                    String sound=jsonObject.getString("sound");
+
                     //flowerList.add(flower);
                     //tv.setText(id.toString() + " " + lan + " " + word + " " + mean + " " + pro );
-                    SaveDB(id,lan,word,mean,pro,sound);
+                    SaveDB(id,word,mean);
                 }
 
                 Toast.makeText(ReadSite.this, "کلمات جدید ذخیره شد", Toast.LENGTH_SHORT).show();
@@ -310,8 +306,8 @@ public class ReadSite extends AppCompatActivity {
 
     //****************** MyDataBaseHelper
     public static class myDatabaseHelper extends SQLiteOpenHelper {
-        public static final String DB_NAME= "word.sqlite";
-        public static final String TBL_NAME= "dictionary";
+        public static final String DB_NAME= "EnglishWords.sqlite";
+        public static final String TBL_NAME= "practice";
         public String DB_PATH;
         private Context myContext;
 
@@ -361,8 +357,8 @@ public class ReadSite extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY, language TEXT , word TEXT" +
-                    ", mean TEXT , pronounce TEXT,sound Text)");
+            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY , word TEXT" +
+                    ", mean TEXT )");
 
         }
 

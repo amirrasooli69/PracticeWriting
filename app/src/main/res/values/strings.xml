@@ -15,13 +15,11 @@
         <item>مادربزرگ.grandmother</item>
         <item>حروف انگلیسی.abcdefghigkl</item>
     </string-array>
-
+    <string name="storage_permission">برنامه برای ذخیره دیتابیس در دستگاه نیاز به دسترسی به حافظه دارد لطفا این دسترسی را به برنامه بدهید</string>
     <string name="bestHome">بهترین رکورد</string>
-
     <string name="share1">رکورد من در بازی "کلمات پاپیلو" :</string>
     <string name="share2">میتونی رکورد منو بزنی :)</string>
     <string name="score">امتیاز</string>
-
     <string name="youCouldMade">شما نتوانستید بسازید:</string>
     <string name="youScored">امتیاز شما</string>
     <string name="playAgain">بازی دوباره</string>

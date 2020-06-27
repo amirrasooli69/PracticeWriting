@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 
 public class Idea extends AppCompatActivity {
     BottomNavigationView bottomNav;

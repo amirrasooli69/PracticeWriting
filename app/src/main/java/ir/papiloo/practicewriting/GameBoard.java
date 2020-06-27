@@ -28,14 +28,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Pattern;
 
-import ir.papiloo.words.R;
+import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class GameBoard extends AppCompatActivity implements View.OnClickListener {
 
     /* Views */
-    TextView sTitleTxt, scoreTxt, letter1, letter2, letter3, letter4, letter5, txtanswer,txtWord;
+    TextView sTitleTxt, scoreTxt, txtanswer,txtWord;
 
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5, letterButt6, letterButt7
