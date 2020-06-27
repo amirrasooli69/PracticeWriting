@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -50,6 +52,8 @@ public class Home extends AppCompatActivity {
     BottomNavigationView bottomNav;
     Button play;
     Cursor cursor ;
+    List<String> wordsArray;
+
 
     /* Variables */
     SharedPreferences prefs;
@@ -90,10 +94,7 @@ public class Home extends AppCompatActivity {
             boolean c = mydb.insertData(3, "noteBook", "دفتر");
 
         }
-        String DATABASE_NAME = "EnglishWords.sqlite";
-        String TABLE_NAME = "practice";
-        SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
-        Cursor cursor  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
+
 
 
 
@@ -164,6 +165,37 @@ public class Home extends AppCompatActivity {
 
     }
 
+    public int buildListWords()
+    {
+        ArrayList<String> mylist = new ArrayList<String>();
+        String DATABASE_NAME = "EnglishWords.sqlite";
+        String TABLE_NAME = "practice";
+        try {
+            SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
+            Cursor cursor  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
+            if(cursor.moveToFirst()){
+                do{
+                    String ID = cursor.getString(0);
+                    String word = cursor.getString(1);
+                    String mean = cursor.getString(2);
+
+
+                    mylist.add(word+"."+mean);
+
+                    // Show values with Toast
+//                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
+                }
+                while(cursor.moveToNext());
+                wordsArray=mylist;
+            }
+            mydb.close();
+
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+        }
+        return wordsArray.size();
+
+    }
     // create other language in list
     public void itemDetails() {
 
@@ -172,7 +204,9 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
-        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
+//        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
+        arrayItem.add(new Item("ico_english", Integer.toString(buildListWords())));
+
 
 
     }

@@ -120,6 +120,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 //        Log.i("list size: ", String.valueOf(wordsArray.size()));
 
 
+
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "practice";
