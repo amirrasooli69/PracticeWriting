@@ -143,7 +143,7 @@ public class ReadSite extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-    private void SaveDB(final Integer id, final String word,
+    private void SaveDB(final Integer id ,final String word,
                         final String mean) {
         mydb = new myDatabaseHelper(this);
 
@@ -203,8 +203,10 @@ public class ReadSite extends AppCompatActivity {
 
     private void getJson() {
             //pb.setVisibility(View.VISIBLE);
-         String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/returnJson.php";
-                URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
+         //String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/returnJson.php";
+        String URI_SHOW_PARAMS = "http://semnantavanafza.ir/test/writing.php";
+
+        //URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
 
         final StringRequest request = new StringRequest(
                 Request.Method.GET,
@@ -282,13 +284,15 @@ public class ReadSite extends AppCompatActivity {
                     //Flower flower= new Flower();
                     Integer id=jsonObject.getInt("id");
                     //flower.setId(jsonObject.getInt("Id"));
+//                    String category=jsonObject.getString("category");
+//                    //flower.setWord(jsonObject.getString("category"));
                     String word=jsonObject.getString("word");
                     //flower.setWord(jsonObject.getString("Word"));
                     String mean = jsonObject.getString("mean");
                     //flower.setMean(jsonObject.getString("Mean"));
 
                     //flowerList.add(flower);
-                    //tv.setText(id.toString() + " " + lan + " " + word + " " + mean + " " + pro );
+                    //tv.setText(id.toString() + " " + category + " " + word + " " + mean );
                     SaveDB(id,word,mean);
                 }
 
@@ -357,8 +361,7 @@ public class ReadSite extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY , word TEXT" +
-                    ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY , " + " word TEXT" + ", mean TEXT )");
 
         }
 
@@ -368,12 +371,13 @@ public class ReadSite extends AppCompatActivity {
             //onCreate(db);
         }
 
-        public boolean insertData(Integer Id, String word, String mean)
+        public boolean insertData(Integer Id ,String word, String mean)
         {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
             cv.put("Id",Id);
+//            cv.put("category",category);
             cv.put("word",word);
             cv.put("mean",mean);
 
