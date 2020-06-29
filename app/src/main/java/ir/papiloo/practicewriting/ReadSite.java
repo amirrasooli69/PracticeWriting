@@ -147,7 +147,7 @@ public class ReadSite extends AppCompatActivity {
                         final String mean) {
         mydb = new myDatabaseHelper(this);
 
-                boolean a = mydb.insertData(id, word,mean);
+                boolean a = mydb.insertData(word,mean);
 //                if (a)
 //                    mes = "اطلاعات ذخیره شد";
 //                else
@@ -204,7 +204,7 @@ public class ReadSite extends AppCompatActivity {
     private void getJson() {
             //pb.setVisibility(View.VISIBLE);
          //String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/returnJson.php";
-        String URI_SHOW_PARAMS = "http://semnantavanafza.ir/test/writing.php";
+        String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/writing.php";
 
         //URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
 
@@ -361,7 +361,7 @@ public class ReadSite extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY , " + " word TEXT" + ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT" + ", mean TEXT )");
 
         }
 
@@ -371,12 +371,12 @@ public class ReadSite extends AppCompatActivity {
             //onCreate(db);
         }
 
-        public boolean insertData(Integer Id ,String word, String mean)
+        public boolean insertData(String word, String mean)
         {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
-            cv.put("Id",Id);
+//            cv.put("Id",Id);
 //            cv.put("category",category);
             cv.put("word",word);
             cv.put("mean",mean);
