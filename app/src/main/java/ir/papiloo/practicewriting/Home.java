@@ -145,6 +145,7 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("Assemble", "تجمع،مونتاژ کردن");
             a = mydb.insertData("Explore", "بررسی کردن");
             a = mydb.insertData("Topic", "موضوع");
+            a = mydb.insertData("Debate", "مناظره");
             a = mydb.insertData("Evade", "شانه خالی کردن،فرار کردن");
             a = mydb.insertData("Probe", "جستجو");
             a = mydb.insertData("Reform", "اصلاح کردن");
@@ -490,6 +491,7 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("Coeducational", "مشارکتی");
             a = mydb.insertData("Radical", "ریشه ای،افراطی،تندرو");
             a = mydb.insertData("Spontaneous", "خود جوش");
+            a = mydb.insertData("Skim", "از روی چیزی گذشتن");
             a = mydb.insertData("Vaccinate", "واکسن زدن");
             a = mydb.insertData("Untidy", "نامرتب");
             a = mydb.insertData("Utensil", "وسایل آشپزی");

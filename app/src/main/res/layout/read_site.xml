@@ -38,6 +38,7 @@
                 android:background="@color/colorPrimary"
                 android:textStyle="bold"
                 android:textSize="25dp"
+                android:enabled="false"
                 />
 
 
