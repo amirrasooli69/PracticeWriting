@@ -43,7 +43,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5, letterButt6, letterButt7
-            , letterButt8, letterButt9, letterButt10, letterButt11, letterButt12;
+            , letterButt8, letterButt9, letterButt10, letterButt11, letterButt12,btnHint;
     String beforeChar="";
 
     /* Variables */
@@ -124,6 +124,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "practice";
+        btnHint=findViewById(R.id.btnHint);
         try{
             SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
             Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
@@ -163,6 +164,13 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             public void onClick(View view) {
                 gameTimer.cancel();
                 finish();
+            }
+        });
+
+        btnHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnHint.setText(wordByCharacters);
             }
         });
 
@@ -966,6 +974,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 //lenght=w.length();
                 txtanswer.setText(one[1]);
             }
+            btnHint.setText(w);
             Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
 
         } else {
@@ -1429,6 +1438,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         tapsCount = -1;
         txtWord.setText("");
         beforeChar="";
+        btnHint.setText("کمک");
 
         // reset wordByCharacters
         //wordByCharacters = "";
