@@ -33,7 +33,6 @@ public class SendWord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.send_word);
-
         word = findViewById(R.id.txtWord);
         mean = findViewById(R.id.txtMeansWord);
         pronounce = findViewById(R.id.txtPronounce);
@@ -44,18 +43,11 @@ public class SendWord extends AppCompatActivity {
         btnHome=findViewById(R.id.btnHome);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
         //add value in spinner
         category =(Spinner) findViewById(R.id.selectCategory);
         List<String> list = new ArrayList<String>();
-        list.add("فارسی");
-        list.add("سمنانی");
-        list.add("سنگسری");
-        list.add("مازندرانی");
-
+        list.add("انگلیسی");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category.setAdapter(adapter);

@@ -26,12 +26,8 @@ public class GameOver extends AppCompatActivity {
     /* Views */
     TextView possibleWordTxt, scoreTxt;
 
-
     /* Variables */
     MarshMallowPermission mmp = new MarshMallowPermission(this);
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,24 +39,17 @@ public class GameOver extends AppCompatActivity {
         getSupportActionBar().hide();
 
         // Hide Status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // Init views
         possibleWordTxt = (TextView)findViewById(R.id.goPossibleWordTxt);
         possibleWordTxt.setTypeface(Configs.juneGull);
         scoreTxt = (TextView)findViewById(R.id.goScoreTxt);
         scoreTxt.setTypeface(Configs.juneGull);
-
-
-
         // Show score
         scoreTxt.setText(String.valueOf(Configs.score));
-
-
         // Get the word you could have made
-        possibleWordTxt.setText(Configs.stringsArray.get(1));
+        possibleWordTxt.setText(Configs.stringsArray.get(0));
 
 
 

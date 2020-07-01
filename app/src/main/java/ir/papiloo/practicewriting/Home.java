@@ -595,9 +595,6 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("ballot", "برگه رای");
         }
 
-
-
-
         //test send to site
         Button btntest=(Button) findViewById(R.id.addword);
         btntest.setOnClickListener(new View.OnClickListener() {

@@ -59,6 +59,8 @@ public class ReadSite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_site);
+        getSupportActionBar().hide();
+
         tv = findViewById(R.id.tv);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         pDialog = new ProgressDialog(this);
