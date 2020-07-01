@@ -8,7 +8,7 @@
     tools:context="ir.papiloo.practicewriting.GameBoard"
     android:layoutDirection="rtl"
     android:keepScreenOn="true"
-    android:background="@drawable/wall_home">
+    android:background="@drawable/background1">
 
     <Button
         android:id="@+id/gbBackButt"
@@ -27,7 +27,7 @@
         android:layout_alignBaseline="@+id/gbBackButt"
         android:layout_centerHorizontal="true"
         android:text="@string/score"
-        android:textColor="#F3F1F1"
+        android:textColor="#FF5722"
         android:textSize="18sp" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical"
         android:text="0000"
-        android:textColor="#FFFFFF"
+        android:textColor="#FF5722"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -361,10 +361,10 @@
             android:layout_below="@+id/letterButt11"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/wall_home2"
+            android:background="@drawable/background1"
             android:text="راهنمایی"
             android:textAllCaps="false"
-            android:textColor="#fff"
+            android:textColor="#009688"
             android:textSize="30sp" />
 
 

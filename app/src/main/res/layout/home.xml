@@ -7,7 +7,7 @@
     android:id="@+id/hLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wall_home"
+    android:background="@drawable/background1"
     tools:context="ir.papiloo.practicewriting.Home"
     >
 
@@ -34,7 +34,7 @@
         android:layout_marginRight="87dp"
         android:text="@string/bestHome"
         android:textAllCaps="true"
-        android:textColor="#FFEB3B"
+        android:textColor="#05BFAE"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="17dp"
-        android:textColor="#FFEB3B"
+        android:textColor="#05BFAE"
         android:textSize="32sp" />
 
 
@@ -71,9 +71,9 @@
         android:layout_alignParentLeft="true"
         android:layout_margin="15dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/wall_home2"
+        android:background="@drawable/background1"
         android:text="اضافه کردن لغت"
-        android:textColor="@android:color/white"
+        android:textColor="#009688"
         android:textSize="25sp"
         android:textStyle="bold" />
 

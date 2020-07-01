@@ -6,8 +6,8 @@
     android:background="@drawable/splash">
 
 
-    <TextView
-        android:layout_marginTop="50dp"
+    <TextView android:id="@+id/txt1"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="English Practice"
@@ -15,6 +15,17 @@
         android:textSize="50dp"
         android:textStyle="bold|italic"
         android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt1"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Writing"
+        android:textColor="#5ED363"
+        android:textSize="50dp"
+        android:textStyle="bold|italic" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
