@@ -51,7 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="test"
-        android:textColor="#FFE500"
+        android:textColor="#E68A03"
         android:textSize="25sp" />
 
 
@@ -357,7 +357,7 @@
 
         <Button android:id="@+id/btnHint"
             android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/letterButt11"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
