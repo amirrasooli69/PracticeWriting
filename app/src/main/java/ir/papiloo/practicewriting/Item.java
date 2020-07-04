@@ -51,5 +51,10 @@ public class Item {
         this.imgAvatar = imgAvatar;
         this.txtMessage = txtMessage;
     }
+    public Item(String imgAvatar, String txtMessage,String txtBook) {
+        this.imgAvatar = imgAvatar;
+        this.txtMessage = txtMessage;
+        this.txtName=txtBook;
+    }
 }
 

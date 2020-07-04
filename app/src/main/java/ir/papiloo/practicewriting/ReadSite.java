@@ -314,6 +314,7 @@ public class ReadSite extends AppCompatActivity {
     public static class myDatabaseHelper extends SQLiteOpenHelper {
         public static final String DB_NAME= "EnglishWords.sqlite";
         public static final String TBL_NAME= "practice";
+        public static final String TBL_SELF= "self";
         public String DB_PATH;
         private Context myContext;
 
@@ -364,6 +365,7 @@ public class ReadSite extends AppCompatActivity {
         public void onCreate(SQLiteDatabase db) {
 
             db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT" + ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_SELF+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT" + ", mean TEXT )");
 
         }
 
@@ -385,6 +387,24 @@ public class ReadSite extends AppCompatActivity {
 
 
             long result=db.insert(TBL_NAME,null,cv);
+
+            if(result==-1)
+                return  false;
+            else
+                return true;
+        }
+        public boolean insertSelf(String word, String mean)
+        {
+            SQLiteDatabase db=this.getWritableDatabase();
+
+            ContentValues cv =new ContentValues();
+//            cv.put("Id",Id);
+//            cv.put("category",category);
+            cv.put("word",word);
+            cv.put("mean",mean);
+
+
+            long result=db.insert(TBL_SELF,null,cv);
 
             if(result==-1)
                 return  false;

@@ -593,6 +593,7 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("Wharf", "اسکله");
             a = mydb.insertData("Amend", "اصلاح کردن");
             a = mydb.insertData("ballot", "برگه رای");
+            a=mydb.insertSelf("boy","پسر");
         }
 
         //test send to site
@@ -693,16 +694,49 @@ public class Home extends AppCompatActivity {
         return wordsArray.size();
 
     }
+    public int selftWords()
+    {
+        ArrayList<String> mylist = new ArrayList<String>();
+        String DATABASE_NAME = "EnglishWords.sqlite";
+        String TABLE_NAME = "self";
+        try {
+            SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
+            Cursor cursor  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
+            if(cursor.moveToFirst()){
+                do{
+                    String ID = cursor.getString(0);
+                    String word = cursor.getString(1);
+                    String mean = cursor.getString(2);
+
+
+                    mylist.add(word+"."+mean);
+
+                    // Show values with Toast
+//                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
+                }
+                while(cursor.moveToNext());
+                wordsArray=mylist;
+            }
+            mydb.close();
+
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+        }
+        return wordsArray.size();
+
+    }
     // create other language in list
     public void itemDetails() {
 
-//        arrayItem.add(new Item("ico_fa", "فارسی", "----", "----"));
 //        arrayItem.add(new Item("ico_sem", "سمنانی", "----", "----"));
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
+        arrayItem.add(new Item("book_504", Integer.toString(buildListWords())));
+        arrayItem.add(new Item("ico_english", Integer.toString(selftWords()),"لغات خودتان"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
 //        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
-        arrayItem.add(new Item("ico_english", Integer.toString(buildListWords())));
+
+
 
 
 
