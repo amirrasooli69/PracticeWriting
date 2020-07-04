@@ -171,6 +171,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 btnHint.setText(wordByCharacters);
+                progress = progress + Configs.penaltyProgress;
+
             }
         });
 
