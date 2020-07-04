@@ -34,18 +34,13 @@ import java.util.regex.Pattern;
 
 import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-
 public class GameBoard extends AppCompatActivity implements View.OnClickListener {
-
     /* Views */
     TextView sTitleTxt, scoreTxt, txtanswer,txtWord;
-
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5, letterButt6, letterButt7
             , letterButt8, letterButt9, letterButt10, letterButt11, letterButt12,btnHint;
     String beforeChar="";
-
     /* Variables */
     Timer gameTimer;
     float progress;
@@ -61,7 +56,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     TextView[] letterTxts;
     MediaPlayer mp;
     Cursor Cursor;
-
     MarshMallowPermission mmp = new MarshMallowPermission(this);
 
     int lenght = 6;
@@ -936,16 +930,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Reset letters textViews on the top
         //resetLettersTxt();
     }
-
-    // MARK: - RESET LETTERS ON THE TOP ------------------------------------------------------
-//    void resetLettersTxt() {
-//        for (int i = 0; i<5; i++) {
-//            letterTxts[i].setText("");
-//            letterTxts[i].setBackgroundResource(R.drawable.circle_corner_white);
-//        }
-//    }
-
-
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
 
     int getRandomWord() {
@@ -1519,8 +1503,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
     // MARK: - CHECK RESULT ------------------------------------------------------------
     void checkResult() {
-        Log.i("wordByCharacters","wordByCharacters:" + wordByCharacters);
-        Log.i("TextWord","TxtWord:" + txtWord.getText());
 
         // YOU'VE GUESSED THE WORD!
         firstWord = Configs.stringsArray.get(0);
@@ -1529,8 +1511,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             secondWord = Configs.stringsArray.get(1);
         }
 
-        if (wordByCharacters.matches(txtWord.getText().toString()) ||
-                wordByCharacters.matches(txtWord.getText().toString()))
+        if (wordByCharacters.toLowerCase().matches(txtWord.getText().toString().toLowerCase()) ||
+                wordByCharacters.toLowerCase().matches(txtWord.getText().toString().toLowerCase()))
         {
 
             // Play a sound
