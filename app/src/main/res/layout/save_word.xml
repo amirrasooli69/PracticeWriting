@@ -66,20 +66,22 @@
 
 
             />
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_margin="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/background1"
-        android:text="ثبت لغت"
-        android:textColor="#009688"
-        android:textSize="25sp"
-        android:textStyle="bold"
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/background1"
+            android:text="ثبت لغت"
+            android:textColor="#009688"
+            android:textSize="25sp"
+            android:textStyle="bold"
 
 
-        />
+            />
+
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

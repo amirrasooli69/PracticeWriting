@@ -47,7 +47,7 @@ import ir.papiloo.practicewriting.R;
 public class ReadSite extends AppCompatActivity {
 
     myDatabaseHelper mydb;
-    Button book504,btnHome;
+    Button book504,btnHome,selfWord;
     RequestQueue requestQueue;
     ProgressDialog pDialog;
     ImageView imageView;
@@ -74,6 +74,14 @@ public class ReadSite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getJson();
+            }
+        });
+        selfWord=findViewById(R.id.btnSelfWord);
+        selfWord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ReadSite.this,SendWord.class));
+
             }
         });
 
@@ -364,8 +372,8 @@ public class ReadSite extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT" + ", mean TEXT )");
-            db.execSQL("CREATE TABLE " + TBL_SELF+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT" + ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_SELF+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT )");
 
         }
 

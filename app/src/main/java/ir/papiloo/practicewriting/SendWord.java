@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SendWord extends AppCompatActivity {
-
+    ReadSite.myDatabaseHelper mydb;
     RequestQueue requestQueue;
-    Button btnSend,btnHome;
+    Button btnSave,btnHome;
     TextView word,mean,pronounce,txtResult;
     Spinner category;
     ProgressBar pb;
@@ -37,11 +37,11 @@ public class SendWord extends AppCompatActivity {
         txtResult = findViewById(R.id.result);
         pb = findViewById(R.id.progressBar);
         pb.setVisibility(View.INVISIBLE);
-        btnSend = findViewById(R.id.btnSend);
+        btnSave = findViewById(R.id.btnSave);
         btnHome=findViewById(R.id.btnHome);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //add value in spinner
         category =(Spinner) findViewById(R.id.selectCategory);
         List<String> list = new ArrayList<String>();
@@ -50,45 +50,29 @@ public class SendWord extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category.setAdapter(adapter);
         //____________________
-        btnSend.setOnClickListener(new View.OnClickListener()
+        btnSave.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 txtResult.setText("");
-                String language,w,m,p;
-                language= category.getSelectedItem().toString();
-                w =  word.getText().toString();
+                String language, w, m, p;
+                language = category.getSelectedItem().toString();
+                w = word.getText().toString();
                 m = mean.getText().toString();
                 p = pronounce.getText().toString();
-                if(w.isEmpty())
-                {
+                if (w.isEmpty()) {
                     txtResult.setText("کلمه را بنویسید");
                     return;
                 }
-                String URI_SHOW_PARAMS = "https://Papiloo.ir/Papiloo/Game/Insert.php"+"?"+"Language=" +
-                        language + "&Word="+w+"&Mean="+m+"&Pronounce="+p;
 
-                URI_SHOW_PARAMS=URI_SHOW_PARAMS.replace(" ","%20");
-                StringRequest request=new StringRequest(
-                        Request.Method.GET,
-                        URI_SHOW_PARAMS,
-                        response -> {
-                            txtResult.setText(response);
-                            pb.setVisibility(View.INVISIBLE);
-                            word.setText("");
-                            mean.setText("");
-                            pronounce.setText("");
-                            word.requestFocus();
-                        },
-                        error -> {
-                            txtResult.setText("لغت ثبت نشد");
-                            pb.setVisibility(View.INVISIBLE);
-                        });
-
-                requestQueue.add(request);
-
-
+                mydb = new ReadSite.myDatabaseHelper(SendWord.this);
+                boolean a = mydb.insertSelf(w, m);
+                if (a == true) {
+                    txtResult.setText("کلمه شما ثبت شد");
+                } else
+                {
+                    txtResult.setText("کلمه ثبت نشد");
+                }
             }
         });
 
@@ -99,9 +83,6 @@ public class SendWord extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
 }
-
