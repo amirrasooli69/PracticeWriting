@@ -655,8 +655,22 @@ public class Home extends AppCompatActivity {
 
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Toast.makeText(MainActivity.this, "Item Number " + i , Toast.LENGTH_SHORT).show();
+//                switch (i)
+//                {
+//                    case 0:
+//                        startActivity(new Intent(Home.this, GameBoard.class));
+//                        break;
+//                    case 1:
+//                        startActivity(new Intent(Home.this, GameBoardSelf.class));
+//                        break;
+//                }
                 if(i==0) {
                     startActivity(new Intent(Home.this, GameBoard.class));
+
+
+                }
+                if(i==1) {
+                    startActivity(new Intent(Home.this, GameBoardSelf.class));
                 }
 
             }
@@ -666,7 +680,6 @@ public class Home extends AppCompatActivity {
 
     public int buildListWords()
     {
-        wordsArray.clear();
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "practice";
