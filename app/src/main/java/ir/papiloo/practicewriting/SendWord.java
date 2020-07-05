@@ -20,8 +20,6 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.papiloo.practicewriting.R;
-
 public class SendWord extends AppCompatActivity {
 
     RequestQueue requestQueue;
@@ -32,7 +30,7 @@ public class SendWord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.send_word);
+        setContentView(R.layout.save_word);
         word = findViewById(R.id.txtWord);
         mean = findViewById(R.id.txtMeansWord);
         pronounce = findViewById(R.id.txtPronounce);

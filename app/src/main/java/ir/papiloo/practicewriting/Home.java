@@ -593,6 +593,7 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("Wharf", "اسکله");
             a = mydb.insertData("Amend", "اصلاح کردن");
             a = mydb.insertData("ballot", "برگه رای");
+            //-------
             a=mydb.insertSelf("boy","پسر");
         }
 
@@ -731,17 +732,12 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_sem", "سمنانی", "----", "----"));
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
-        arrayItem.add(new Item("book_504", Integer.toString(buildListWords())));
-        arrayItem.add(new Item("ico_english", Integer.toString(selftWords()),"لغات خودتان"));
+        arrayItem.add(new Item("book_504", Integer.toString(buildListWords()),"book"));
+        arrayItem.add(new Item("ico_english", Integer.toString(selftWords()),"self"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
 //        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
 
-
-
-
-
     }
-
 
     // end onCreate()
   @Override

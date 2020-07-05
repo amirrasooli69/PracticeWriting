@@ -51,10 +51,10 @@ public class Item {
         this.imgAvatar = imgAvatar;
         this.txtMessage = txtMessage;
     }
-    public Item(String imgAvatar, String txtMessage,String txtBook) {
+    public Item(String imgAvatar, String txtMessage,String txtName) {
         this.imgAvatar = imgAvatar;
         this.txtMessage = txtMessage;
-        this.txtName=txtBook;
+        this.txtName=txtName;
     }
 }
 
