@@ -36,10 +36,11 @@ import ir.papiloo.practicewriting.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class GameBoard extends AppCompatActivity implements View.OnClickListener {
     /* Views */
+    ReadSite.myDatabaseHelper mydb;
     TextView sTitleTxt, scoreTxt, txtanswer,txtWord;
     ProgressBar pb;
     Button letterButt1, letterButt2, letterButt3, letterButt4, letterButt5, letterButt6, letterButt7
-            , letterButt8, letterButt9, letterButt10, letterButt11, letterButt12,btnHint;
+            , letterButt8, letterButt9, letterButt10, letterButt11, letterButt12,btnHint,btnFavorite;
     String beforeChar="";
     /* Variables */
     Timer gameTimer;
@@ -170,6 +171,20 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             }
         });
 
+        btnFavorite=findViewById(R.id.btnFavorite);
+        btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
+                boolean a = mydb.insertSelf(wordStr, txtanswer.getText().toString());
+                if(a==true) {
+                    Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    Toast.makeText(GameBoard.this, " کلمه اضافه نشد", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }// end onCreate()
 
     //create count Button

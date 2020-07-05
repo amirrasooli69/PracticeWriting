@@ -594,7 +594,7 @@ public class Home extends AppCompatActivity {
             a = mydb.insertData("Amend", "اصلاح کردن");
             a = mydb.insertData("ballot", "برگه رای");
             //-------
-            a=mydb.insertSelf("boy","پسر");
+            //a=mydb.insertSelf("boy","پسر");
         }
 
         //test send to site
@@ -666,6 +666,7 @@ public class Home extends AppCompatActivity {
 
     public int buildListWords()
     {
+        wordsArray.clear();
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "practice";
@@ -695,8 +696,10 @@ public class Home extends AppCompatActivity {
         return wordsArray.size();
 
     }
+
     public int selftWords()
     {
+        wordsArray.clear();
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "self";
@@ -723,6 +726,9 @@ public class Home extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
         }
+        if(wordsArray.isEmpty())
+            return 0;
+        else
         return wordsArray.size();
 
     }
