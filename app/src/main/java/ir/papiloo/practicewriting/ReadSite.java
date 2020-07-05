@@ -420,14 +420,15 @@ public class ReadSite extends AppCompatActivity {
                 return true;
         }
 
-        public boolean deleteData(String id)
+        public boolean deleteData(String word)
         {
             SQLiteDatabase db= this.getWritableDatabase();
-            long result=db.delete(TBL_NAME,"Id=?",new String[] {id});
-            if(result==0)
-                return false;
-            else
-                return true;
+            long result=db.delete("self","word=?",new String[] {word});
+            return  true;
+//            if(result==0)
+//                return false;
+//            else
+//                return true;
         }
 
         public boolean updateData(String id, String n)

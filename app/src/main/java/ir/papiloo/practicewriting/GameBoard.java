@@ -176,7 +176,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
-                boolean a = mydb.insertSelf(wordStr, txtanswer.getText().toString());
+                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString());
                 if(a==true) {
                     Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();
                 }else
