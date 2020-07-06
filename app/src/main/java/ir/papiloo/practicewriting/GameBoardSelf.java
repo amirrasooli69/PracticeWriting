@@ -170,15 +170,15 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("word=",wordByCharacters);
-                boolean a = mydb.deleteData(wordByCharacters);
-                Log.i("word=",wordByCharacters);
-                if(a==true) {
-                    Toast.makeText(GameBoardSelf.this, "کلمه حذف شد", Toast.LENGTH_SHORT).show();
-                }else
-                {
-                    Toast.makeText(GameBoardSelf.this, " کلمه حذف نشد", Toast.LENGTH_SHORT).show();
-                }
+//                Log.i("word=",wordByCharacters);
+//                boolean a = mydb.deleteData(wordByCharacters);
+//                Log.i("word=",wordByCharacters);
+//                if(a==true) {
+//                    Toast.makeText(GameBoardSelf.this, "کلمه حذف شد", Toast.LENGTH_SHORT).show();
+//                }else
+//                {
+//                    Toast.makeText(GameBoardSelf.this, " کلمه حذف نشد", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
     }// end onCreate()
