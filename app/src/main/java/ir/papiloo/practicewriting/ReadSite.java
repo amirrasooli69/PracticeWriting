@@ -410,21 +410,23 @@ public class ReadSite extends AppCompatActivity {
 //            cv.put("category",category);
             cv.put("word",word);
             cv.put("mean",mean);
-
-
             long result=db.insert(TBL_SELF,null,cv);
-
             if(result==-1)
                 return  false;
             else
                 return true;
         }
-
-        public boolean deleteData(String word)
+        public boolean deleteData()
         {
             SQLiteDatabase db= this.getWritableDatabase();
-            long result=db.delete("self","word=?",new String[] {word});
-            return  true;
+//            long result=db.delete(TBL_SELF,"Id=?",new String[] {Id});
+            Cursor result = db.rawQuery("DELETE FROM self WHERE Id=" + 1,null);
+
+//            return  true;
+            if(result==null)
+                return false;
+            else
+                return true;
 //            if(result==0)
 //                return false;
 //            else

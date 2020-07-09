@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
@@ -49,9 +50,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     List<String> charArray;
     String wordStr = "";
     int tapsCount = 0;
-    String firstWord = "";
-    String secondWord = "";
-    String wordByCharacters = "";
+    String firstWord = "",secondWord = "",wordByCharacters = "",mean = "",word="";
     int randomCircle = 0;
     Button[] letterButtons;
     TextView[] letterTxts;
@@ -114,8 +113,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 //        Log.i("list wordsArray: ", String.valueOf(wordsArray));
 //        Log.i("list size: ", String.valueOf(wordsArray.size()));
 
-
-
         ArrayList<String> mylist = new ArrayList<String>();
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "practice";
@@ -175,6 +172,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
                 boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString());
                 if(a==true) {

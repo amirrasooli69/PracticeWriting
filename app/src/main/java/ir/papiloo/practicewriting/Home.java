@@ -63,7 +63,6 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 androidx.appcompat.app.AlertDialog.Builder dialog = new androidx.appcompat.app.AlertDialog.Builder(this);
@@ -753,7 +752,7 @@ public class Home extends AppCompatActivity {
 //        arrayItem.add(new Item("ico_san", "سنگسری", "----", "----"));
 //        arrayItem.add(new Item("ico_maz", "مازندرانی", "----", "----"));
         arrayItem.add(new Item("book_504", Integer.toString(buildListWords()),"book"));
-        arrayItem.add(new Item("ico_english", Integer.toString(selftWords()),"self"));
+        arrayItem.add(new Item("ico_english",Integer.toString (selftWords()),"self"));
         String [] wordsArrFa = getResources().getStringArray(R.array.english);
 //        arrayItem.add(new Item("ico_english", Integer.toString(wordsArrFa.length)));
 

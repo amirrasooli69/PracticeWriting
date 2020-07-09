@@ -108,13 +108,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 //        wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
 //        Log.i("list wordsArray: ", String.valueOf(wordsArray));
 //        Log.i("list size: ", String.valueOf(wordsArray.size()));
-
-
-
         ArrayList<String> mylist = new ArrayList<String>();
+
+
         String DATABASE_NAME = "EnglishWords.sqlite";
         String TABLE_NAME = "self";
-        btnHint=findViewById(R.id.btnHint);
         try{
             SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
             Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
@@ -156,7 +154,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
                 finish();
             }
         });
-
+        btnHint=findViewById(R.id.btnHint);
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,15 +168,24 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Log.i("word=",wordByCharacters);
-//                boolean a = mydb.deleteData(wordByCharacters);
-//                Log.i("word=",wordByCharacters);
-//                if(a==true) {
-//                    Toast.makeText(GameBoardSelf.this, "کلمه حذف شد", Toast.LENGTH_SHORT).show();
-//                }else
-//                {
-//                    Toast.makeText(GameBoardSelf.this, " کلمه حذف نشد", Toast.LENGTH_SHORT).show();
-//                }
+                Log.i("word=",wordByCharacters);
+
+               boolean a=true;
+                try {
+                    if(mydb.deleteData())
+                    {
+                        Toast.makeText(GameBoardSelf.this, "کلمه حذف شد", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(GameBoardSelf.this, " کلمه حذف نشد", Toast.LENGTH_SHORT).show();
+                    }
+
+                    }
+                catch (Exception e)
+                {
+                    Toast.makeText(GameBoardSelf.this, " null برمیگرداند", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }// end onCreate()
