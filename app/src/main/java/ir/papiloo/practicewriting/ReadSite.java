@@ -391,8 +391,6 @@ public class ReadSite extends AppCompatActivity {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
-//            cv.put("Id",Id);
-//            cv.put("category",category);
             cv.put("word",word);
             cv.put("mean",mean);
 
@@ -409,8 +407,6 @@ public class ReadSite extends AppCompatActivity {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
-//            cv.put("Id",Id);
-//            cv.put("category",category);
             cv.put("word",word);
             cv.put("mean",mean);
             long result=db.insert(TBL_SELF,null,cv);
@@ -422,19 +418,12 @@ public class ReadSite extends AppCompatActivity {
         public boolean deleteData(String word)
         {
             SQLiteDatabase db= this.getWritableDatabase();
-
-//            Cursor result = db.rawQuery("SELECT * FROM "+ TBL_SELF +" WHERE Id=" + 1,null);
-            int deleterow = db.delete(TBL_SELF,"word = ? ",new String[]{word.toString()});
-            Log.i("Delete row count=",Integer.toString(deleterow));
-            if(deleterow>0)
+            int deleteRow = db.delete(TBL_SELF,"word = ? ",new String[]{word.toString()});
+            Log.i("Delete row count=",Integer.toString(deleteRow));
+            if(deleteRow>0)
                 return true;
             else
                 return false;
-
-//            if(result==0)
-//                return false;
-//            else
-//                return true;
         }
 
         public boolean updateData(String id, String n)
