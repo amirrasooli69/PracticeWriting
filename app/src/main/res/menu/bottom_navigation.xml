@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/nav_about"
-        android:icon="@drawable/ic_star_black_24dp"
+        android:icon="@drawable/ic_baseline_star_24"
         android:title="درباره ما" />
     <item
         android:id="@+id/nav_home"

@@ -190,8 +190,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
     }// end onCreate()
 
     //create count Button
-    protected void buildButton(int lenght)
-    {
+    protected void buildButton(int lenght) {
         if (lenght == 3) {
             // Init Views
             sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
@@ -954,16 +953,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         // Get a random circle for letters
         Random r = new Random();
         randomCircle = r.nextInt(Configs.circlesArray.length);
-        // Log.i("log-", "RAND CIRCLE: " + randomCircle);
-
 
         // Get a random word from the string-arrays
         String randomWord = wordsArray.get(new Random().nextInt(wordsArray.size()));
-//        String randomWord = mylist.get(new Random().nextInt(mylist.size()));
-
         wordStr = randomWord;
         Log.i("log-", "RANDOM WORD: " + wordStr);
-
 
         // Get an array of words (if there are multiple words
         Configs.stringsArray = new ArrayList<String>();
@@ -993,71 +987,61 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         String[] chArr = w.split("");
 
         wordByCharacters=w;
-        if(lenght == 3)
-        {
+        if(lenght == 3) {
             for(int i=0; i<4; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 4)
-        {
+        if(lenght == 4) {
             for(int i=0; i<5; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 5)
-        {
+        if(lenght == 5) {
             for(int i=0; i<6; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 6)
-        {
+        if(lenght == 6) {
             for(int i=0; i<7; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 7)
-        {
+        if(lenght == 7) {
             for(int i=0; i<8; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 8)
-        {
+        if(lenght == 8) {
             for(int i=0; i<9; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 9)
-        {
+        if(lenght == 9) {
             for(int i=0; i<10; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 10)
-        {
+        if(lenght == 10) {
             for(int i=0; i<11; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 11)
-        {
+        if(lenght == 11) {
             for(int i=0; i<12; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 12)
-        {
+        if(lenght == 12) {
             for(int i=0; i<13; i++) {
                 String c = chArr[i];
                 charArray.add(c);
@@ -1066,7 +1050,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 
         charArray.remove(0);
         Log.i("log-", "CHARS ARRAY: " + charArray);
-
         // Get Random characthers function
         getRandomChar();
         return lenght;
@@ -1455,7 +1438,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 
     // MARK: - START GAME TIMER ---------------------------------------------------------------
     void startGameTimer() {
-        float delay = 10*Configs.roundTime;
+        float delay = 10 * Configs.roundTime;
         gameTimer =  new Timer();
         gameTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -1475,7 +1458,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
                         }
                     }});}
         }, (int)delay, (int)delay);
-
     }
 
     // UPDATE GAME TIMER ------------------------------------------------

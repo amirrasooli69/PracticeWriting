@@ -176,6 +176,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
                 boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString());
                 if(a==true) {
+                    btnFavorite.setBackgroundResource(R.drawable.star_full);
                     Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();
                 }else
                 {
@@ -946,6 +947,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
 
     int getRandomWord() {
+        btnFavorite.setBackgroundResource(R.drawable.star_emty);
 
         // Get a random circle for letters
         Random r = new Random();
@@ -989,6 +991,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         String[] chArr = w.split("");
 
         wordByCharacters=w;
+        mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
+        if(mydb.selectWordSelf(wordByCharacters))
+        {
+            btnFavorite.setBackgroundResource(R.drawable.star_full);
+        }
         if(lenght == 3)
         {
             for(int i=0; i<4; i++) {

@@ -419,8 +419,17 @@ public class ReadSite extends AppCompatActivity {
         {
             SQLiteDatabase db= this.getWritableDatabase();
             int deleteRow = db.delete(TBL_SELF,"word = ? ",new String[]{word.toString()});
-            Log.i("Delete row count=",Integer.toString(deleteRow));
+            db.close();
             if(deleteRow>0)
+                return true;
+            else
+                return false;
+        }
+        public boolean selectWordSelf(String word)
+        {
+            SQLiteDatabase db= this.getWritableDatabase();
+            Cursor result = db.rawQuery("SELECT * FROM self WHERE word=? ",new String[]{word.toString()});
+            if(result.getCount()>0)
                 return true;
             else
                 return false;
@@ -431,9 +440,7 @@ public class ReadSite extends AppCompatActivity {
             SQLiteDatabase db= this.getWritableDatabase();
             ContentValues cv = new ContentValues();
             cv.put("word",n);
-
             long result = db.update(TBL_NAME,cv,"Id=?",new String[] {id});
-
             if(result<1)
                 return  false;
             else
