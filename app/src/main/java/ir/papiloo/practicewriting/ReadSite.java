@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +54,8 @@ public class ReadSite extends AppCompatActivity {
     ImageView imageView;
     TextView tv;
     ListView list;
+
+
 //    ProgressBar pb;
 
     @Override
@@ -416,17 +419,18 @@ public class ReadSite extends AppCompatActivity {
             else
                 return true;
         }
-        public boolean deleteData()
+        public boolean deleteData(String word)
         {
             SQLiteDatabase db= this.getWritableDatabase();
-//            long result=db.delete(TBL_SELF,"Id=?",new String[] {Id});
-            Cursor result = db.rawQuery("DELETE FROM self WHERE Id=" + 1,null);
 
-//            return  true;
-            if(result==null)
-                return false;
-            else
+//            Cursor result = db.rawQuery("SELECT * FROM "+ TBL_SELF +" WHERE Id=" + 1,null);
+            int deleterow = db.delete(TBL_SELF,"word = ? ",new String[]{word.toString()});
+            Log.i("Delete row count=",Integer.toString(deleterow));
+            if(deleterow>0)
                 return true;
+            else
+                return false;
+
 //            if(result==0)
 //                return false;
 //            else
