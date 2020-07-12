@@ -155,6 +155,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 gameTimer.cancel();
+                startActivity(new Intent(GameBoard.this,Home.class));
                 finish();
             }
         });

@@ -151,6 +151,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 gameTimer.cancel();
+                startActivity(new Intent(GameBoardSelf.this,Home.class));
                 finish();
             }
         });

@@ -602,7 +602,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Home.this, ReadSite.class));
-
+                finish();
             }
         });
         // Init views
@@ -658,10 +658,12 @@ public class Home extends AppCompatActivity {
                 {
                     case 0:
                         startActivity(new Intent(Home.this, GameBoard.class));
+                        finish();
                         break;
                     case 1:
                         if(selftWords()!=0)
                         startActivity(new Intent(Home.this, GameBoardSelf.class));
+                        finish();
                         break;
                 }
 //                if(i==0) {
