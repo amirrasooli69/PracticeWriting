@@ -1587,7 +1587,9 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         gameTimer.cancel();
     }
 
-    public void btnHintClick(View view) {
+    public void onBackPressed() {
+        startActivity(new Intent(GameBoardSelf.this, Home.class));
+        finish();
 
     }
 }// @end

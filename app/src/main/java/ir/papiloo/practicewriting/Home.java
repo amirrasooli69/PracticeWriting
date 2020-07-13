@@ -661,9 +661,10 @@ public class Home extends AppCompatActivity {
                         finish();
                         break;
                     case 1:
-                        if(selftWords()!=0)
-                        startActivity(new Intent(Home.this, GameBoardSelf.class));
-                        finish();
+                        if(selftWords()!=0) {
+                            startActivity(new Intent(Home.this, GameBoardSelf.class));
+                            finish();
+                        }
                         break;
                 }
 //                if(i==0) {

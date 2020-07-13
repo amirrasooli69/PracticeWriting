@@ -59,6 +59,7 @@ public class GameOver extends AppCompatActivity {
         paButt.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+              startActivity(new Intent(GameOver.this, GameBoard.class));
               finish();
         }});
 
@@ -110,6 +111,10 @@ public class GameOver extends AppCompatActivity {
         return Uri.parse(path);
     }
 
+    public void onBackPressed() {
+        startActivity(new Intent(GameOver.this, Home.class));
+        finish();
 
+    }
 
 }// @end

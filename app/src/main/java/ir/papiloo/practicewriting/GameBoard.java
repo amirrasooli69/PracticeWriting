@@ -1,6 +1,7 @@
 package ir.papiloo.practicewriting;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -1559,6 +1560,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         // Go to Game Over Activity
         startActivity(new Intent(GameBoard.this, GameOver.class));
+        finish();
     }
     // MARK: - PLAY SOUND --------------------------------------------------------
     void playSound(String soundName) {
@@ -1586,7 +1588,10 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         super.onDestroy();
         gameTimer.cancel();
     }
-    public void btnHintClick(View view) {
+
+    public void onBackPressed() {
+        startActivity(new Intent(GameBoard.this, Home.class));
+        finish();
 
     }
 }// @end
