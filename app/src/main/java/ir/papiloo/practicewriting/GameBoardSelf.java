@@ -139,7 +139,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 resetWord();
-
                 // Play a sound
                 playSound("resetWord.mp3");
             }

@@ -108,7 +108,7 @@ public class ReadSite extends AppCompatActivity {
         w = "rasooli";
         m = "semnan";
         p = "iran";
-        String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/Game/Insert.php?" +
+        String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/App/Game/Insert.php?" +
                 "Language=" + language + "&Word=" + w + "&Mean=" + m + "&Pronounce=" + p;
 
         URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
@@ -217,7 +217,7 @@ public class ReadSite extends AppCompatActivity {
     private void getJson() {
             //pb.setVisibility(View.VISIBLE);
          //String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/returnJson.php";
-        String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/practicewriting/writing.php";
+        String URI_SHOW_PARAMS = "https://papiloo.ir/Papiloo/App/practicewriting/writing.php";
 
         //URI_SHOW_PARAMS = URI_SHOW_PARAMS.replace(" ", "%20");
 
