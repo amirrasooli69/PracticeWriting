@@ -57,9 +57,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     MediaPlayer mp;
     Cursor Cursor;
     MarshMallowPermission mmp = new MarshMallowPermission(this);
-
     int lenght = 6;
-
     // ON START() ------------------------------------------------------------------------
     @Override
     protected void onStart() {
@@ -90,7 +88,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         //lenght=
         getRandomWord();
     }
-
     // ON CREATE() ---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +145,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 playSound("resetWord.mp3");
             }
         });
-
         // MARK: - BACK BUTTON ------------------------------------
         Button backButt = (Button) findViewById(R.id.gbBackButt);
         backButt.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +155,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 finish();
             }
         });
-
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +163,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
             }
         });
-
         btnFavorite=findViewById(R.id.btnFavorite);
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,10 +180,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             }
         });
     }// end onCreate()
-
     //create count Button
-    protected void buildButton(int lenght)
-    {
+    protected void buildButton(int lenght) {
         if (lenght == 3) {
             // Init Views
             sTitleTxt = (TextView) findViewById(R.id.gbScoreTxt);
@@ -932,7 +924,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
-
     // MARK: - RESET LETTER BUTTONS ------------------------------------------------------
     void resetLetterButtons() {
 
@@ -946,7 +937,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         //resetLettersTxt();
     }
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
-
     int getRandomWord() {
         btnFavorite.setBackgroundResource(R.drawable.star_emty);
 
@@ -1075,7 +1065,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         getRandomChar();
         return lenght;
     }
-
     // MARK: - GET RANDOM CHARACTERS --------------------------------------------------------
     void getRandomChar() {
         // Get a random combination that displays characters on the Game Board
@@ -1438,8 +1427,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Call reset Word function
         resetWord();
     }
-
-    // MARK: - RESET WORDS BUTTONS --------------------------------------------------------
+    // MARK: - ESET WORDS BUTTONS --------------------------------------------------------
     void resetWord() {
         // Reset tap Counts
         tapsCount = -1;
@@ -1456,7 +1444,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Reset top Letters
         //resetLettersTxt();
     }
-
     // MARK: - START GAME TIMER ---------------------------------------------------------------
     void startGameTimer() {
         float delay = 10*Configs.roundTime;
@@ -1481,14 +1468,12 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         }, (int)delay, (int)delay);
 
     }
-
     // UPDATE GAME TIMER ------------------------------------------------
     void updateTimer() {
         gameTimer.cancel();
         pb.setProgress((int) progress);
         startGameTimer();
     }
-
     // MARK: - LETTER BUTTON TAPPED ----------------------------------------------
     @Override
     public void onClick(View v) {
@@ -1521,10 +1506,8 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Play a sound
         playSound("buttTapped.mp3");
     }
-
     // MARK: - CHECK RESULT ------------------------------------------------------------
     void checkResult() {
-
         // YOU'VE GUESSED THE WORD!
         firstWord = Configs.stringsArray.get(0);
 
@@ -1560,13 +1543,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             playSound("resetWord.mp3");
         }
     }
-
     // MARK: - GAME OVER ------------------------------------------------------------
     void gameOver() {
         // Get bestScore
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoard.this);
         Configs.bestScore = prefs.getInt("bestScore", Configs.bestScore);
-
         // Save Best Score
         if (Configs.bestScore <= Configs.score) {
             Configs.bestScore = Configs.score;
@@ -1579,11 +1560,9 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         // Go to Game Over Activity
         startActivity(new Intent(GameBoard.this, GameOver.class));
     }
-
     // MARK: - PLAY SOUND --------------------------------------------------------
     void playSound(String soundName) {
         try {
-
             MediaPlayer mp = new MediaPlayer();
 
             AssetFileDescriptor afd = getAssets().openFd("sounds/" + soundName);
@@ -1602,13 +1581,11 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
 
         } catch (Exception e) { e.printStackTrace(); }
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         gameTimer.cancel();
     }
-
     public void btnHintClick(View view) {
 
     }
