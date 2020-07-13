@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

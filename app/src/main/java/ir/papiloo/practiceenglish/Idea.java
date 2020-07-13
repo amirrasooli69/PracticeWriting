@@ -1,28 +1,21 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 
 public class Idea extends AppCompatActivity {
     BottomNavigationView buttomNav;

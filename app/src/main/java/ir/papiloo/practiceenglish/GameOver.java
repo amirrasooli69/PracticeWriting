@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class GameOver extends AppCompatActivity {
@@ -110,7 +109,6 @@ public class GameOver extends AppCompatActivity {
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "image", null);
         return Uri.parse(path);
     }
-
     public void onBackPressed() {
         startActivity(new Intent(GameOver.this, Home.class));
         finish();

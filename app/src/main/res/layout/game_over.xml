@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c01140"
-    tools:context="ir.papiloo.practicewriting.GameOver"
+    tools:context="ir.papiloo.practiceenglish.GameOver"
     android:layoutDirection="rtl">
 
 

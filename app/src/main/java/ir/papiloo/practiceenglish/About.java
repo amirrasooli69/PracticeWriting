@@ -1,17 +1,16 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class About extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashScreen extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,7 +42,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 
 public class ReadSite extends AppCompatActivity {
 

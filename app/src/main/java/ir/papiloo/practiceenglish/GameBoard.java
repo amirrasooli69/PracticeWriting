@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,14 +9,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,9 +28,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.regex.Pattern;
 
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-public class GameBoardSelf extends AppCompatActivity implements View.OnClickListener {
+public class GameBoard extends AppCompatActivity implements View.OnClickListener {
     /* Views */
     ReadSite.myDatabaseHelper mydb;
     TextView sTitleTxt, scoreTxt, txtanswer,txtWord;
@@ -44,18 +45,14 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
     List<String> charArray;
     String wordStr = "";
     int tapsCount = 0;
-    String firstWord = "";
-    String secondWord = "";
-    String wordByCharacters = "";
+    String firstWord = "",secondWord = "",wordByCharacters = "",mean = "",word="";
     int randomCircle = 0;
     Button[] letterButtons;
     TextView[] letterTxts;
     MediaPlayer mp;
     Cursor Cursor;
     MarshMallowPermission mmp = new MarshMallowPermission(this);
-
     int lenght = 6;
-
     // ON START() ------------------------------------------------------------------------
     @Override
     protected void onStart() {
@@ -86,7 +83,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         //lenght=
         getRandomWord();
     }
-
     // ON CREATE() ---------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,11 +104,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 //        wordsArray = new ArrayList<String>(Arrays.asList(wordsArr));
 //        Log.i("list wordsArray: ", String.valueOf(wordsArray));
 //        Log.i("list size: ", String.valueOf(wordsArray.size()));
+
         ArrayList<String> mylist = new ArrayList<String>();
-
-
         String DATABASE_NAME = "EnglishWords.sqlite";
-        String TABLE_NAME = "self";
+        String TABLE_NAME = "practice";
+        btnHint=findViewById(R.id.btnHint);
         try{
             SQLiteDatabase mydb = openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE,null);
             Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
@@ -139,22 +135,21 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 resetWord();
+
                 // Play a sound
                 playSound("resetWord.mp3");
             }
         });
-
         // MARK: - BACK BUTTON ------------------------------------
         Button backButt = (Button) findViewById(R.id.gbBackButt);
         backButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gameTimer.cancel();
-                startActivity(new Intent(GameBoardSelf.this,Home.class));
+                startActivity(new Intent(GameBoard.this,Home.class));
                 finish();
             }
         });
-        btnHint=findViewById(R.id.btnHint);
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,32 +158,23 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 
             }
         });
-
         btnFavorite=findViewById(R.id.btnFavorite);
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try
+
+                mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
+                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString());
+                if(a==true) {
+                    btnFavorite.setBackgroundResource(R.drawable.star_full);
+                    Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();
+                }else
                 {
-                    mydb = new ReadSite.myDatabaseHelper(GameBoardSelf.this);
-                    if(mydb.deleteData(wordByCharacters))
-                    {
-                        Toast.makeText(GameBoardSelf.this, "کلمه حذف شد", Toast.LENGTH_SHORT).show();
-                        getRandomWord();
-                    }
-                    else
-                    {
-                        Toast.makeText(GameBoardSelf.this, " کلمه حذف نشد", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                catch (Exception e)
-                {
-                    Toast.makeText(GameBoardSelf.this, " null برمیگرداند", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GameBoard.this, " کلمه اضافه نشد", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }// end onCreate()
-
     //create count Button
     protected void buildButton(int lenght) {
         if (lenght == 3) {
@@ -933,7 +919,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
-
     // MARK: - RESET LETTER BUTTONS ------------------------------------------------------
     void resetLetterButtons() {
 
@@ -947,17 +932,22 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         //resetLettersTxt();
     }
     // MARK: - GET A RANDOM WORD ------------------------------------------------------------
-
     int getRandomWord() {
+        btnFavorite.setBackgroundResource(R.drawable.star_emty);
 
         // Get a random circle for letters
         Random r = new Random();
         randomCircle = r.nextInt(Configs.circlesArray.length);
+        // Log.i("log-", "RAND CIRCLE: " + randomCircle);
+
 
         // Get a random word from the string-arrays
         String randomWord = wordsArray.get(new Random().nextInt(wordsArray.size()));
+//        String randomWord = mylist.get(new Random().nextInt(mylist.size()));
+
         wordStr = randomWord;
         Log.i("log-", "RANDOM WORD: " + wordStr);
+
 
         // Get an array of words (if there are multiple words
         Configs.stringsArray = new ArrayList<String>();
@@ -987,61 +977,76 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         String[] chArr = w.split("");
 
         wordByCharacters=w;
-        if(lenght == 3) {
+        mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
+        if(mydb.selectWordSelf(wordByCharacters))
+        {
+            btnFavorite.setBackgroundResource(R.drawable.star_full);
+        }
+        if(lenght == 3)
+        {
             for(int i=0; i<4; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 4) {
+        if(lenght == 4)
+        {
             for(int i=0; i<5; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 5) {
+        if(lenght == 5)
+        {
             for(int i=0; i<6; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 6) {
+        if(lenght == 6)
+        {
             for(int i=0; i<7; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 7) {
+        if(lenght == 7)
+        {
             for(int i=0; i<8; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 8) {
+        if(lenght == 8)
+        {
             for(int i=0; i<9; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 9) {
+        if(lenght == 9)
+        {
             for(int i=0; i<10; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 10) {
+        if(lenght == 10)
+        {
             for(int i=0; i<11; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 11) {
+        if(lenght == 11)
+        {
             for(int i=0; i<12; i++) {
                 String c = chArr[i];
                 charArray.add(c);
             }
         }
-        if(lenght == 12) {
+        if(lenght == 12)
+        {
             for(int i=0; i<13; i++) {
                 String c = chArr[i];
                 charArray.add(c);
@@ -1050,11 +1055,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 
         charArray.remove(0);
         Log.i("log-", "CHARS ARRAY: " + charArray);
+
         // Get Random characthers function
         getRandomChar();
         return lenght;
     }
-
     // MARK: - GET RANDOM CHARACTERS --------------------------------------------------------
     void getRandomChar() {
         // Get a random combination that displays characters on the Game Board
@@ -1417,8 +1422,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         // Call reset Word function
         resetWord();
     }
-
-    // MARK: - RESET WORDS BUTTONS --------------------------------------------------------
+    // MARK: - ESET WORDS BUTTONS --------------------------------------------------------
     void resetWord() {
         // Reset tap Counts
         tapsCount = -1;
@@ -1435,10 +1439,9 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         // Reset top Letters
         //resetLettersTxt();
     }
-
     // MARK: - START GAME TIMER ---------------------------------------------------------------
     void startGameTimer() {
-        float delay = 10 * Configs.roundTime;
+        float delay = 10*Configs.roundTime;
         gameTimer =  new Timer();
         gameTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -1458,15 +1461,14 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
                         }
                     }});}
         }, (int)delay, (int)delay);
-    }
 
+    }
     // UPDATE GAME TIMER ------------------------------------------------
     void updateTimer() {
         gameTimer.cancel();
         pb.setProgress((int) progress);
         startGameTimer();
     }
-
     // MARK: - LETTER BUTTON TAPPED ----------------------------------------------
     @Override
     public void onClick(View v) {
@@ -1499,10 +1501,8 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         // Play a sound
         playSound("buttTapped.mp3");
     }
-
     // MARK: - CHECK RESULT ------------------------------------------------------------
     void checkResult() {
-
         // YOU'VE GUESSED THE WORD!
         firstWord = Configs.stringsArray.get(0);
 
@@ -1538,13 +1538,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             playSound("resetWord.mp3");
         }
     }
-
     // MARK: - GAME OVER ------------------------------------------------------------
     void gameOver() {
         // Get bestScore
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoardSelf.this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameBoard.this);
         Configs.bestScore = prefs.getInt("bestScore", Configs.bestScore);
-
         // Save Best Score
         if (Configs.bestScore <= Configs.score) {
             Configs.bestScore = Configs.score;
@@ -1555,13 +1553,12 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         playSound("gameOver.mp3");
 
         // Go to Game Over Activity
-        startActivity(new Intent(GameBoardSelf.this, GameOver.class));
+        startActivity(new Intent(GameBoard.this, GameOver.class));
+        finish();
     }
-
     // MARK: - PLAY SOUND --------------------------------------------------------
     void playSound(String soundName) {
         try {
-
             MediaPlayer mp = new MediaPlayer();
 
             AssetFileDescriptor afd = getAssets().openFd("sounds/" + soundName);
@@ -1580,7 +1577,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
 
         } catch (Exception e) { e.printStackTrace(); }
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -1588,7 +1584,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(GameBoardSelf.this, Home.class));
+        startActivity(new Intent(GameBoard.this, Home.class));
         finish();
 
     }

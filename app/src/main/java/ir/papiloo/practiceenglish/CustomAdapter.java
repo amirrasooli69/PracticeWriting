@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 
 import android.content.Context;
@@ -13,7 +13,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 
 public class CustomAdapter extends BaseAdapter {
     private Context mContext;

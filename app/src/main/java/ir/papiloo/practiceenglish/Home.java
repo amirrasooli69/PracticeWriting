@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -19,11 +19,9 @@ import android.provider.MediaStore;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +38,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 

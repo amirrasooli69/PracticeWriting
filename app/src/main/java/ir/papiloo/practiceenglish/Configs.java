@@ -1,4 +1,4 @@
-package ir.papiloo.practicewriting;
+package ir.papiloo.practiceenglish;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.graphics.Typeface;
 
 import java.util.List;
 
-import ir.papiloo.practicewriting.R;
+import ir.papiloo.practiceenglish.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
