@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ir.papiloo.practicewriting/app" />
-      <module fileurl="file://$PROJECT_DIR$/ir.papiloo.practicewriting.iml" filepath="$PROJECT_DIR$/ir.papiloo.practicewriting.iml" group="ir.papiloo.practicewriting" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ir.papiloo.practiceenglish/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ir.papiloo.practiceenglish.iml" filepath="$PROJECT_DIR$/.idea/modules/ir.papiloo.practiceenglish.iml" group="ir.papiloo.practiceenglish" />
     </modules>
   </component>
 </project>

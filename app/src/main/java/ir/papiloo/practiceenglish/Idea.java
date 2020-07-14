@@ -84,7 +84,7 @@ public class Idea extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tg://resolve?domain=Papiloosoft"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tg://resolve?domain=@Papiloosoft"));
                     startActivity(intent);
                 }
                 catch (ActivityNotFoundException e){
