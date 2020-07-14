@@ -156,10 +156,10 @@ public class ReadSite extends AppCompatActivity {
     }
 
     private void SaveDB(final Integer id ,final String word,
-                        final String mean) {
+                        final String mean,final String pro) {
         mydb = new myDatabaseHelper(this);
 
-                boolean a = mydb.insertData(word,mean);
+                boolean a = mydb.insertData(word,mean,pro);
 //                if (a)
 //                    mes = "اطلاعات ذخیره شد";
 //                else
@@ -302,10 +302,12 @@ public class ReadSite extends AppCompatActivity {
                     //flower.setWord(jsonObject.getString("Word"));
                     String mean = jsonObject.getString("mean");
                     //flower.setMean(jsonObject.getString("Mean"));
+                    String pro = jsonObject.getString("pro");
+
 
                     //flowerList.add(flower);
                     //tv.setText(id.toString() + " " + category + " " + word + " " + mean );
-                    SaveDB(id,word,mean);
+                    SaveDB(id,word,mean,pro);
                 }
 
                 Toast.makeText(ReadSite.this, "کلمات جدید ذخیره شد", Toast.LENGTH_SHORT).show();
@@ -374,8 +376,8 @@ public class ReadSite extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT )");
-            db.execSQL("CREATE TABLE " + TBL_SELF+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_NAME+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT, pro TEXT )");
+            db.execSQL("CREATE TABLE " + TBL_SELF+ "(Id INTEGER PRIMARY KEY AUTOINCREMENT , " + " word TEXT UNIQUE" + ", mean TEXT, pro TEXT )");
 
         }
 
@@ -385,13 +387,14 @@ public class ReadSite extends AppCompatActivity {
             //onCreate(db);
         }
 
-        public boolean insertData(String word, String mean)
+        public boolean insertData(String word, String mean,String pro)
         {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
             cv.put("word",word);
             cv.put("mean",mean);
+            cv.put("pro",pro);
 
 
             long result=db.insert(TBL_NAME,null,cv);
@@ -401,13 +404,15 @@ public class ReadSite extends AppCompatActivity {
             else
                 return true;
         }
-        public boolean insertSelf(String word, String mean)
+        public boolean insertSelf(String word, String mean ,String pro)
         {
             SQLiteDatabase db=this.getWritableDatabase();
 
             ContentValues cv =new ContentValues();
             cv.put("word",word);
             cv.put("mean",mean);
+            cv.put("pro",pro);
+
             long result=db.insert(TBL_SELF,null,cv);
             if(result==-1)
                 return  false;

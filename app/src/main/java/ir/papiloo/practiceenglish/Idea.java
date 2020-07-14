@@ -47,6 +47,7 @@ public class Idea extends AppCompatActivity {
                 return false;
             }
         });
+        // Button Instagram
         btnInsta=findViewById(R.id.btnInstagram);
         btnInsta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,7 @@ public class Idea extends AppCompatActivity {
                 Toast.makeText(Idea.this, "Instagram", Toast.LENGTH_SHORT).show();
             }
         });
+        // Button WhatsApp
         btnWhatsApp=findViewById(R.id.btnWhatsApp);
         btnWhatsApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +81,7 @@ public class Idea extends AppCompatActivity {
                 }
             }
         });
+        //Button Telegram
         btnTelegram=findViewById(R.id.btnTelegram);
         btnTelegram.setOnClickListener(new View.OnClickListener() {
             @Override
