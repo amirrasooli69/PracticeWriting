@@ -124,7 +124,6 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
                 }
                 while(allrows.moveToNext());
                 wordsArray=mylist;
-                Log.i("count wordarray",Integer.toString(wordsArray.size()));
             }
             mydb.close();
         }catch(Exception e){
@@ -166,7 +165,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             public void onClick(View v) {
 
                 mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
-                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString(),"");
+                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString(),pro);
                 if(a==true) {
                     btnFavorite.setBackgroundResource(R.drawable.star_full);
                     Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();

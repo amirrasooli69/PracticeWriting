@@ -44,9 +44,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
     List<String> charArray;
     String wordStr = "";
     int tapsCount = 0;
-    String firstWord = "";
-    String secondWord = "";
-    String wordByCharacters = "";
+    String firstWord = "",secondWord = "",wordByCharacters = "",mean = "",word="",pro="",ID="";
     int randomCircle = 0;
     Button[] letterButtons;
     TextView[] letterTxts;
@@ -118,10 +116,11 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
             if(allrows.moveToFirst()){
                 do{
-                    String ID = allrows.getString(0);
-                    String word = allrows.getString(1);
-                    String mean = allrows.getString(2);
-                    mylist.add(word+"."+mean);
+                    ID = allrows.getString(0);
+                    word = allrows.getString(1);
+                    mean = allrows.getString(2);
+                    pro=allrows.getString(3);
+                    mylist.add(word+"."+mean+"."+pro);
                     // Show values with Toast
 //                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
                 }
@@ -158,7 +157,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnHint.setText(wordByCharacters);
+                btnHint.setText(wordByCharacters+"\n"+pro);
                 progress = progress + Configs.penaltyProgress;
 
             }
@@ -968,7 +967,7 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
             for (String word : one) {
                 Configs.stringsArray.add(word);
                 w=one[0];
-                //lenght=w.length();
+                pro=one[2];
                 txtanswer.setText(one[1]);
             }
             btnHint.setText(w);
