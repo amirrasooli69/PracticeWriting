@@ -54,5 +54,9 @@ public class About extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+    public void onBackPressed() {
+        finish();
+
+    }
 
 }

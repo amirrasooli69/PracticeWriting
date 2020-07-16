@@ -83,6 +83,7 @@ public class ReadSite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ReadSite.this,SendWord.class));
+                finish();
 
             }
         });
@@ -280,8 +281,6 @@ public class ReadSite extends AppCompatActivity {
         requestQueue.add(request);
     }
 
-
-
     //****************** FlowerJsonParser
     public class FlowerJsonParser  {
 
@@ -318,8 +317,6 @@ public class ReadSite extends AppCompatActivity {
         }
 
     }
-
-
 
     //****************** MyDataBaseHelper
     public static class myDatabaseHelper extends SQLiteOpenHelper {
@@ -460,9 +457,10 @@ public class ReadSite extends AppCompatActivity {
 
     }
 
+    public void onBackPressed() {
+        startActivity(new Intent(ReadSite.this, Home.class));
+        finish();
 
-
-
-
+    }
 }
 

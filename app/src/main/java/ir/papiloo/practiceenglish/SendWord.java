@@ -81,5 +81,9 @@ public class SendWord extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed() {
+        startActivity(new Intent(SendWord.this, Home.class));
+        finish();
 
+    }
 }
