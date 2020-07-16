@@ -357,7 +357,7 @@
 
         <Button android:id="@+id/btnHint"
         android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:layout_below="@+id/letterButt11"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -365,7 +365,7 @@
         android:text="راهنمایی"
         android:textAllCaps="false"
         android:textColor="#009688"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
         <Button
             android:id="@+id/btnFavorite"
