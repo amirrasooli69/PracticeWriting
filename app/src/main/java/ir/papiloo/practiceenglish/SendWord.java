@@ -63,7 +63,7 @@ public class SendWord extends AppCompatActivity {
                 }
 
                 mydb = new ReadSite.myDatabaseHelper(SendWord.this);
-                boolean a = mydb.insertSelf(w, m);
+                boolean a = mydb.insertSelf(w, m , p);
                 if (a == true) {
                     txtResult.setText("کلمه شما ثبت شد");
                 } else

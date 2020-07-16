@@ -45,7 +45,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     List<String> charArray;
     String wordStr = "";
     int tapsCount = 0;
-    String firstWord = "",secondWord = "",wordByCharacters = "",mean = "",word="";
+    String firstWord = "",secondWord = "",wordByCharacters = "",mean = "",word="",pro="",ID="";
     int randomCircle = 0;
     Button[] letterButtons;
     TextView[] letterTxts;
@@ -114,15 +114,17 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             Cursor allrows  = mydb.rawQuery("SELECT * FROM "+  TABLE_NAME, null);
             if(allrows.moveToFirst()){
                 do{
-                    String ID = allrows.getString(0);
-                    String word = allrows.getString(1);
-                    String mean = allrows.getString(2);
-                    mylist.add(word+"."+mean);
+                     ID = allrows.getString(0);
+                     word = allrows.getString(1);
+                     mean = allrows.getString(2);
+                     pro=allrows.getString(3);
+                    mylist.add(word+"."+mean+"."+pro);
                     // Show values with Toast
 //                    Toast.makeText(getApplicationContext(),NAME+"."+CITY , Toast.LENGTH_LONG).show();
                 }
                 while(allrows.moveToNext());
                 wordsArray=mylist;
+                Log.i("count wordarray",Integer.toString(wordsArray.size()));
             }
             mydb.close();
         }catch(Exception e){
@@ -153,7 +155,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnHint.setText(wordByCharacters);
+                btnHint.setText(wordByCharacters+"\n"+pro);
                 progress = progress + Configs.penaltyProgress;
 
             }
@@ -164,7 +166,7 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             public void onClick(View v) {
 
                 mydb = new ReadSite.myDatabaseHelper(GameBoard.this);
-                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString());
+                boolean a = mydb.insertSelf(wordByCharacters, txtanswer.getText().toString(),"");
                 if(a==true) {
                     btnFavorite.setBackgroundResource(R.drawable.star_full);
                     Toast.makeText(GameBoard.this, "به کلمات شمااضافه شد", Toast.LENGTH_SHORT).show();
@@ -958,11 +960,16 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
             for (String word : one) {
                 Configs.stringsArray.add(word);
                 w=one[0];
-                //lenght=w.length();
+                pro=one[2];
+
                 txtanswer.setText(one[1]);
             }
-            btnHint.setText(w);
-            Log.i("log-", "\n\nWORDS ARRAY: " + Configs.stringsArray);
+            btnHint.setText(w+pro);
+            Log.i("pro", "\n\nWORDS ARRAY: " + pro);
+            Log.i("pro", ": " + w + one[1] +pro);
+            Log.i("pro-btnHint", ": " + btnHint.getText());
+
+
 
         } else {
             //Log.i("log-", "SINGLE WORD: " + wordStr);
