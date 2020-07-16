@@ -304,7 +304,6 @@ public class ReadSite extends AppCompatActivity {
                     //flower.setMean(jsonObject.getString("Mean"));
                     String pro = jsonObject.getString("pro");
 
-
                     //flowerList.add(flower);
                     //tv.setText(id.toString() + " " + category + " " + word + " " + mean );
                     SaveDB(id,word,mean,pro);
