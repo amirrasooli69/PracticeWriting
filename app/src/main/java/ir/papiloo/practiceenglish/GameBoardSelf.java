@@ -1,5 +1,6 @@
 package ir.papiloo.practiceenglish;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -91,6 +94,8 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_board);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
 
         // Hide ActionBar
         getSupportActionBar().hide();
@@ -157,8 +162,14 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         btnHint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnHint.setText(wordByCharacters+"\n"+pro);
-                progress = progress + Configs.penaltyProgress;
+                if (btnHint.getText() == "کمک") {
+                    btnHint.setText(wordByCharacters + "\n" + pro);
+                    progress = progress + Configs.penaltyProgress;
+                }
+                else
+                {
+                    btnHint.setText("کمک");
+                }
 
             }
         });
@@ -1591,4 +1602,18 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         finish();
 
     }
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
+            startActivity(new Intent(GameBoardSelf.this, Home.class));
+            finish();
+            return true;
+        }
+
+        return super.dispatchKeyEvent(event);
+    }
+
+
+
+
 }// @end

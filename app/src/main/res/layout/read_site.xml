@@ -9,6 +9,7 @@
     android:background="@drawable/background1"
     android:padding="10dp"
     android:layoutDirection="ltr"
+    android:keepScreenOn="true"
 
 
     >

@@ -11,6 +11,8 @@
     android:background="@drawable/background1"
     tools:context="ir.papiloo.practiceenglish.Home"
     android:layoutDirection="ltr"
+    android:keepScreenOn="true"
+
 
     >
 
