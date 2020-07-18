@@ -94,7 +94,6 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_board);
         super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
         // Hide ActionBar
@@ -1602,18 +1601,13 @@ public class GameBoardSelf extends AppCompatActivity implements View.OnClickList
         finish();
 
     }
+
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_POWER) {
-            startActivity(new Intent(GameBoardSelf.this, Home.class));
-            finish();
-            return true;
-        }
-
-        return super.dispatchKeyEvent(event);
+    protected void onStop() {
+        super.onStop();
+        finish();
+        onRestart();
     }
-
-
 
 
 }// @end

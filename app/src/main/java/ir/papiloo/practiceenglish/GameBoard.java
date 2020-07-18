@@ -1598,6 +1598,12 @@ public class GameBoard extends AppCompatActivity implements View.OnClickListener
     public void onBackPressed() {
         startActivity(new Intent(GameBoard.this, Home.class));
         finish();
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+        onRestart();
     }
 }// @end

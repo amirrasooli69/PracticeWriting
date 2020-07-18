@@ -8,7 +8,8 @@
     tools:context="ir.papiloo.practiceenglish.GameBoard"
     android:layoutDirection="rtl"
     android:keepScreenOn="true"
-    android:background="@drawable/background1">
+    android:background="@drawable/background1"
+    >
 
     <Button
         android:id="@+id/gbBackButt"

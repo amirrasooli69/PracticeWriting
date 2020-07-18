@@ -841,6 +841,7 @@ public class Home extends AppCompatActivity {
                                     {
                                         public void onClick(DialogInterface dialog, int which) {
                                             finish();
+                                            onDestroy();
                                         }
                                     });
 //                             alertDialog.setNegativeButton("درباره ما",
