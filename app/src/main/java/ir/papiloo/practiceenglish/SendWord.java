@@ -61,6 +61,19 @@ public class SendWord extends AppCompatActivity {
                     txtResult.setText("کلمه را بنویسید");
                     return;
                 }
+                if(w.length()<3 || w.length()>12)
+                {
+                    txtResult.setText("کلمه باید بین 3 تا 12 کارکتر باشد");
+                    return;
+                }
+                if(m.isEmpty())
+                {
+                    m=" ";
+                }
+                if(p.isEmpty())
+                {
+                    p=" ";
+                }
 
                 mydb = new ReadSite.myDatabaseHelper(SendWord.this);
                 boolean a = mydb.insertSelf(w, m , p);
