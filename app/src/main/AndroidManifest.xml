@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light"
         tools:ignore="HardcodedDebugMode">
-        <activity android:name=".Eamil"></activity>
+        <activity android:name=".Email"></activity>
         <activity android:name=".Idea" />
         <activity
             android:name=".SplashScreen"

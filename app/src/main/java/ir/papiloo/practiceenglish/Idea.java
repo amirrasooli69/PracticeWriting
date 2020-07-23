@@ -2,21 +2,19 @@ package ir.papiloo.practiceenglish;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import ir.papiloo.practiceenglish.R;
 
 public class Idea extends AppCompatActivity {
@@ -155,31 +153,7 @@ public class Idea extends AppCompatActivity {
             public void onClick(View v) {
                 try
                 {
-                    if (MarshMallowPermission.IS_INTERNET_AVAILABLE(Idea.this)) {
-                        // Do your stuff
-                        // your codes
-                        String url = "papiloosoft@gmail.com";
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse(url));
-                        startActivity(intent);
-                    }
-                    else
-                    {
-                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Idea.this);
-                        alertDialog.setTitle("اینترنت");
-                        alertDialog.setMessage("اینترنت وصل نیست");
-                        alertDialog.setIcon(R.drawable.logo);
-                        alertDialog.setPositiveButton("بستن",
-                                new DialogInterface.OnClickListener()
-                                {
-                                    public void onClick(DialogInterface dialog, int which)
-                                    {
-                                        finish();
-                                    }
-                                });
-                        alertDialog.show();
-                    }
+                    startActivity(new Intent(Idea.this, Email.class));
                 }
                 catch (Exception e)
                 {
