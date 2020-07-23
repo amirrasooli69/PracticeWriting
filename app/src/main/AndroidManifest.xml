@@ -8,10 +8,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
 
-
-
     <application
-        android:name="ir.papiloo.practiceenglish.Configs"
+        android:name=".Configs"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,9 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light"
         tools:ignore="HardcodedDebugMode">
-        <activity android:name="ir.papiloo.practiceenglish.Idea" />
+        <activity android:name=".Eamil"></activity>
+        <activity android:name=".Idea" />
         <activity
-            android:name="ir.papiloo.practiceenglish.SplashScreen"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:noHistory="true"
             android:screenOrientation="fullSensor"
@@ -32,18 +31,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- Other Activities -->
-        <activity android:name="ir.papiloo.practiceenglish.Home" />
-        <activity android:name="ir.papiloo.practiceenglish.GameBoard" />
-        <activity android:name="ir.papiloo.practiceenglish.GameOver" />
-        <activity android:name="ir.papiloo.practiceenglish.About" />
-        <activity android:name="ir.papiloo.practiceenglish.CustomAdapter"
+        <activity android:name=".Home" />
+        <activity android:name=".GameBoard" />
+        <activity android:name=".GameOver" />
+        <activity android:name=".About" />
+        <activity
+            android:name=".CustomAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name="ir.papiloo.practiceenglish.Item"
+        <activity
+            android:name=".Item"
             tools:ignore="Instantiatable" />
-        <activity android:name="ir.papiloo.practiceenglish.SendWord"/>
-        <activity android:name="ir.papiloo.practiceenglish.ReadSite"/>
-        <activity android:name="ir.papiloo.practiceenglish.GameBoardSelf"/>
-
+        <activity android:name=".SendWord" />
+        <activity android:name=".ReadSite" />
+        <activity android:name=".GameBoardSelf" />
     </application>
 
 </manifest>

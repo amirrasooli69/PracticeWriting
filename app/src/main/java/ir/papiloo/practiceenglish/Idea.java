@@ -3,7 +3,9 @@ package ir.papiloo.practiceenglish;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,7 +21,7 @@ import ir.papiloo.practiceenglish.R;
 
 public class Idea extends AppCompatActivity {
     BottomNavigationView buttomNav;
-    Button btnWhatsApp,btnInsta,btnTelegram;
+    Button btnWhatsApp,btnInsta,btnTelegram,btnMyket,btnEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +95,107 @@ public class Idea extends AppCompatActivity {
                 catch (ActivityNotFoundException e){
                 Toast.makeText(Idea.this, "شما برنامه Telegram را ندارید", Toast.LENGTH_SHORT).show();
             }
+            }
+        });
+        btnMyket=findViewById(R.id.btnMyket);
+        btnMyket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try
+                {
+                    if (MarshMallowPermission.IS_INTERNET_AVAILABLE(Idea.this)) {
+                        // Do your stuff
+                        // your codes
+                        final String PACKAGE_NAME = getPackageName();
+                        //String url="https://www.papiloo.ir/documentation/Games/Fives/Papiloo.apk";
+                        String url = "myket://comment?id=" + getPackageName();
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(url));
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Idea.this);
+                        alertDialog.setTitle("اینترنت");
+                        alertDialog.setMessage("اینترنت وصل نیست");
+                        alertDialog.setIcon(R.drawable.logo);
+                        alertDialog.setPositiveButton("بستن",
+                                new DialogInterface.OnClickListener()
+                                {
+                                    public void onClick(DialogInterface dialog, int which)
+                                    {
+                                        finish();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }
+                catch (Exception e)
+                {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Idea.this);
+                    alertDialog.setTitle("نظر");
+                    alertDialog.setMessage("بزودی فعال میشود");
+                    alertDialog.setIcon(R.drawable.logo);
+                    alertDialog.setPositiveButton("بستن",
+                            new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+                    alertDialog.show();
+                }
+            }
+
+        });
+        btnEmail=findViewById(R.id.btnEmail);
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try
+                {
+                    if (MarshMallowPermission.IS_INTERNET_AVAILABLE(Idea.this)) {
+                        // Do your stuff
+                        // your codes
+                        String url = "papiloosoft@gmail.com";
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(url));
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Idea.this);
+                        alertDialog.setTitle("اینترنت");
+                        alertDialog.setMessage("اینترنت وصل نیست");
+                        alertDialog.setIcon(R.drawable.logo);
+                        alertDialog.setPositiveButton("بستن",
+                                new DialogInterface.OnClickListener()
+                                {
+                                    public void onClick(DialogInterface dialog, int which)
+                                    {
+                                        finish();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }
+                catch (Exception e)
+                {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Idea.this);
+                    alertDialog.setTitle("امیل");
+                    alertDialog.setMessage("بزودی فعال میشود");
+                    alertDialog.setIcon(R.drawable.logo);
+                    alertDialog.setPositiveButton("بستن",
+                            new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            });
+                    alertDialog.show();
+                }
             }
         });
     }

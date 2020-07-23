@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         >
 
@@ -53,6 +53,35 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/ico_telegram"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lineyaridea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnMyket"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ico_myket1"
+            tools:ignore="ButtonStyle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" " />
+
+        <Button
+            android:id="@+id/btnEmail"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ico_email"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
