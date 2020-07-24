@@ -114,5 +114,9 @@ public class Email extends AppCompatActivity {
         }
     }
 
+    public void onBackPressed() {
+        startActivity(new Intent(Email.this, Idea.class));
+        finish();
 
+    }
 }

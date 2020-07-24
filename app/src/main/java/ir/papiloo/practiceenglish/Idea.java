@@ -154,6 +154,7 @@ public class Idea extends AppCompatActivity {
                 try
                 {
                     startActivity(new Intent(Idea.this, Email.class));
+                    finish();
                 }
                 catch (Exception e)
                 {
